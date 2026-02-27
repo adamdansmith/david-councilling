@@ -19,7 +19,7 @@
       --muted: #475569;
       --border: rgba(15, 23, 42, 0.10);
       --shadow: 0 14px 32px rgba(15, 23, 42, 0.08);
-      --radius: 10px;
+      --radius: 12px;
       --radius-sm: 14px;
       --max: 1100px;
       --pad: 24px;
@@ -27,8 +27,6 @@
 
       --accent: #0ea5a4;
       --accent-soft: rgba(14, 165, 164, 0.10);
-
-      --heroImage: url("david-headshot.jpg");
     }
 
     * {
@@ -187,7 +185,7 @@
     }
 
     .hero {
-      padding: 66px 0 52px;
+      padding: 72px 0 56px;
       position: relative;
       overflow: hidden;
       border-bottom: 1px solid var(--border);
@@ -198,17 +196,9 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(
-          90deg,
-          rgba(251, 250, 248, 0.92) 0%,
-          rgba(251, 250, 248, 0.82) 45%,
-          rgba(251, 250, 248, 0.55) 100%
-        ),
-        var(--heroImage);
-      background-size: cover;
-      background-position: center;
-      transform: scale(1.03);
-      filter: saturate(1.05) contrast(1.02);
+        radial-gradient(900px 520px at 12% 10%, rgba(14, 165, 164, 0.16), transparent 55%),
+        radial-gradient(750px 480px at 88% 0%, rgba(37, 99, 235, 0.10), transparent 60%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.70) 0%, rgba(255, 255, 255, 0.35) 100%);
     }
 
     .hero-grid {
@@ -224,7 +214,7 @@
       line-height: 1.05;
       letter-spacing: -0.03em;
       margin: 0 0 12px;
-      max-width: 24ch;
+      max-width: 26ch;
     }
 
     .subhead {
@@ -248,7 +238,7 @@
       padding: 10px 12px;
       border: 1px solid var(--border);
       background: rgba(255, 255, 255, 0.78);
-      border-radius: 10px;
+      border-radius: 12px;
       font-size: 14px;
       box-shadow: 0 10px 20px rgba(15, 23, 42, 0.06);
     }
@@ -270,32 +260,34 @@
 
     .headshot-top {
       display: grid;
-      grid-template-columns: 74px 1fr;
-      gap: 12px;
+      grid-template-columns: 108px 1fr;
+      gap: 14px;
       align-items: center;
-      padding: 12px;
+      padding: 14px;
       border-radius: 16px;
-      background: rgba(15, 23, 42, 0.03);
+      background: rgba(255, 255, 255, 0.78);
       border: 1px solid var(--border);
       margin-bottom: 12px;
     }
 
     .headshot-top img {
-      width: 74px;
-      height: 74px;
+      width: 108px;
+      height: 108px;
       object-fit: cover;
-      border-radius: 16px;
+      border-radius: 18px;
       border: 1px solid var(--border);
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
     }
 
     .headshot-top strong {
       display: block;
-      font-size: 15px;
+      font-size: 16px;
       letter-spacing: -0.01em;
     }
 
     .headshot-top span {
       display: block;
+      margin-top: 2px;
       font-size: 13px;
       color: var(--muted);
     }
@@ -310,9 +302,9 @@
     }
 
     .contact-item {
-      padding: 10px;
+      padding: 12px;
       border-radius: 14px;
-      background: rgba(15, 23, 42, 0.03);
+      background: rgba(255, 255, 255, 0.70);
       border: 1px solid var(--border);
     }
 
@@ -365,6 +357,13 @@
       border-radius: var(--radius-sm);
       background: rgba(255, 255, 255, 0.86);
       box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+    }
+
+    .icon-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+      border-color: rgba(14, 165, 164, 0.22);
     }
 
     .icon {
@@ -375,17 +374,26 @@
       place-items: center;
       background: var(--accent-soft);
       border: 1px solid rgba(14, 165, 164, 0.18);
+      color: var(--accent);
+    }
+
+    .icon svg {
+      width: 20px;
+      height: 20px;
     }
 
     .icon-item strong {
       display: block;
       margin-bottom: 4px;
       letter-spacing: -0.01em;
+      font-size: 15px;
     }
 
     .icon-item span {
       color: var(--muted);
       font-size: 14px;
+      display: block;
+      margin-top: 2px;
     }
 
     .about {
@@ -420,7 +428,7 @@
     .badge {
       border: 1px solid var(--border);
       background: rgba(15, 23, 42, 0.02);
-      border-radius: 10px;
+      border-radius: 12px;
       padding: 8px 10px;
       font-size: 13px;
       font-weight: 600;
@@ -447,34 +455,6 @@
       background: rgba(255, 255, 255, 0.86);
       box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
     }
-
-    .icon {
-  color: var(--accent);
-}
-
-.icon svg {
-  width: 20px;
-  height: 20px;
-}
-
-.icon-item {
-  transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
-}
-
-.icon-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
-  border-color: rgba(14, 165, 164, 0.22);
-}
-
-.icon-item strong {
-  font-size: 15px;
-}
-
-.icon-item span {
-  display: block;
-  margin-top: 2px;
-}
 
     .cta {
       border-top: 1px solid var(--border);
@@ -650,14 +630,10 @@
               <img src="david-headshot.jpg" alt="David Billington" loading="eager" />
               <div>
                 <strong>David Billington</strong>
-                <span>Counselling in Horndean &amp; online</span>
+                <span>Qualified counsellor</span>
+                <span>Horndean, Hampshire &amp; online</span>
               </div>
             </div>
-
-            <h2 style="margin: 0 0 10px; font-size: 16px;">Contact details</h2>
-            <p style="margin: 0 0 14px; color: var(--muted); font-size: 14px;">
-              If you’d like to explore whether therapy with me feels right, you’re welcome to get in touch.
-            </p>
 
             <ul class="contact-list">
               <li class="contact-item">
@@ -673,110 +649,114 @@
                 <a href="https://www.bacp.co.uk/therapists/399649/david-billington/waterlooville-po8" target="_blank" rel="noopener">View registration</a>
               </li>
             </ul>
+
+            <p class="fineprint" style="margin-top: 12px;">
+              Free 20-minute introductory call available.
+            </p>
           </aside>
         </div>
       </div>
     </section>
 
     <section aria-labelledby="is-for-you">
-  <div class="container">
-    <h2 class="section-title" id="is-for-you">You might be feeling</h2>
-    <p class="lead">You don’t need to have everything figured out to begin.</p>
+      <div class="container">
+        <h2 class="section-title" id="is-for-you">You might be feeling</h2>
+        <p class="lead">You don’t need to have everything figured out to begin.</p>
 
-    <div class="grid grid-3" role="list">
-      <div class="icon-item" role="listitem">
-        <div class="icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 21s7-4.4 7-11a7 7 0 1 0-14 0c0 6.6 7 11 7 11z"></path>
-            <path d="M12 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path>
-          </svg>
-        </div>
-        <div>
-          <strong>Anxious or overwhelmed</strong>
-          <span>When worry, pressure or stress feels constant.</span>
+        <div class="grid grid-3" role="list">
+          <div class="icon-item" role="listitem">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 21s7-4.4 7-11a7 7 0 1 0-14 0c0 6.6 7 11 7 11z"></path>
+                <path d="M12 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path>
+              </svg>
+            </div>
+            <div>
+              <strong>Anxious or overwhelmed</strong>
+              <span>When worry, pressure or stress feels constant.</span>
+            </div>
+          </div>
+
+          <div class="icon-item" role="listitem">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 21a9 9 0 1 0-9-9"></path>
+                <path d="M7 10h.01"></path>
+                <path d="M17 10h.01"></path>
+                <path d="M8 15s1.5-2 4-2 4 2 4 2"></path>
+              </svg>
+            </div>
+            <div>
+              <strong>Low in confidence</strong>
+              <span>Self-doubt, criticism, or feeling not “enough”.</span>
+            </div>
+          </div>
+
+          <div class="icon-item" role="listitem">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 19c4 0 7-3 7-7s-3-7-7-7-7 3-7 7 3 7 7 7z"></path>
+                <path d="M9.5 9.5h.01"></path>
+                <path d="M14.5 9.5h.01"></path>
+                <path d="M9 14c1 1 2 1.5 3 1.5S14 15 15 14"></path>
+              </svg>
+            </div>
+            <div>
+              <strong>Struggling with depression</strong>
+              <span>Low mood, numbness, or feeling disconnected.</span>
+            </div>
+          </div>
+
+          <div class="icon-item" role="listitem">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v4"></path>
+                <path d="M12 18v4"></path>
+                <path d="M4.9 4.9l2.8 2.8"></path>
+                <path d="M16.3 16.3l2.8 2.8"></path>
+                <path d="M2 12h4"></path>
+                <path d="M18 12h4"></path>
+                <path d="M4.9 19.1l2.8-2.8"></path>
+                <path d="M16.3 7.7l2.8-2.8"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </div>
+            <div>
+              <strong>Navigating neurodiversity</strong>
+              <span>Autism, ADHD, or feeling out of step with others.</span>
+            </div>
+          </div>
+
+          <div class="icon-item" role="listitem">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.8 12.6A9 9 0 1 1 11.4 3.2"></path>
+                <path d="M22 6l-10 10"></path>
+                <path d="M16 6h6v6"></path>
+              </svg>
+            </div>
+            <div>
+              <strong>Coping with loss</strong>
+              <span>Grief, change, or life feeling different than before.</span>
+            </div>
+          </div>
+
+          <div class="icon-item" role="listitem">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a10 10 0 1 0 10 10"></path>
+                <path d="M12 8v5"></path>
+                <path d="M12 17h.01"></path>
+              </svg>
+            </div>
+            <div>
+              <strong>Feeling stuck</strong>
+              <span>Unsure what you need, but knowing something isn’t right.</span>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div class="icon-item" role="listitem">
-        <div class="icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 21a9 9 0 1 0-9-9"></path>
-            <path d="M7 10h.01"></path>
-            <path d="M17 10h.01"></path>
-            <path d="M8 15s1.5-2 4-2 4 2 4 2"></path>
-          </svg>
-        </div>
-        <div>
-          <strong>Low in confidence</strong>
-          <span>Self-doubt, criticism, or feeling not “enough”.</span>
-        </div>
-      </div>
-
-      <div class="icon-item" role="listitem">
-        <div class="icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 19c4 0 7-3 7-7s-3-7-7-7-7 3-7 7 3 7 7 7z"></path>
-            <path d="M9.5 9.5h.01"></path>
-            <path d="M14.5 9.5h.01"></path>
-            <path d="M9 14c1 1 2 1.5 3 1.5S14 15 15 14"></path>
-          </svg>
-        </div>
-        <div>
-          <strong>Struggling with depression</strong>
-          <span>Low mood, numbness, or feeling disconnected.</span>
-        </div>
-      </div>
-
-      <div class="icon-item" role="listitem">
-        <div class="icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2v4"></path>
-            <path d="M12 18v4"></path>
-            <path d="M4.9 4.9l2.8 2.8"></path>
-            <path d="M16.3 16.3l2.8 2.8"></path>
-            <path d="M2 12h4"></path>
-            <path d="M18 12h4"></path>
-            <path d="M4.9 19.1l2.8-2.8"></path>
-            <path d="M16.3 7.7l2.8-2.8"></path>
-            <circle cx="12" cy="12" r="3"></circle>
-          </svg>
-        </div>
-        <div>
-          <strong>Navigating neurodiversity</strong>
-          <span>Autism, ADHD, or feeling out of step with others.</span>
-        </div>
-      </div>
-
-      <div class="icon-item" role="listitem">
-        <div class="icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20.8 12.6A9 9 0 1 1 11.4 3.2"></path>
-            <path d="M22 6l-10 10"></path>
-            <path d="M16 6h6v6"></path>
-          </svg>
-        </div>
-        <div>
-          <strong>Coping with loss</strong>
-          <span>Grief, change, or life feeling different than before.</span>
-        </div>
-      </div>
-
-      <div class="icon-item" role="listitem">
-        <div class="icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2a10 10 0 1 0 10 10"></path>
-            <path d="M12 8v5"></path>
-            <path d="M12 17h.01"></path>
-          </svg>
-        </div>
-        <div>
-          <strong>Feeling stuck</strong>
-          <span>Unsure what you need, but knowing something isn’t right.</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <section id="about" aria-labelledby="about-title">
       <div class="container">
@@ -790,9 +770,11 @@
             <p class="lead">
               I’m David Billington, a qualified counsellor. I offer face-to-face sessions in Horndean, Hampshire, as well as online therapy.
             </p>
+
             <p style="margin: 0 0 12px;">
               My approach is warm, collaborative and grounded. Together, we explore your thoughts and experiences at a pace that feels safe.
             </p>
+
             <p style="margin: 0;">
               I am a registered member of the British Association for Counselling and Psychotherapy (BACP) and work within their ethical framework.
             </p>
