@@ -19,14 +19,13 @@
       --muted: #475569;
       --border: rgba(15, 23, 42, 0.10);
       --shadow: 0 14px 32px rgba(15, 23, 42, 0.08);
-      --radius: 14px;
-      --radius-sm: 14px;
-      --max: 1100px;
-      --pad: 24px;
+      --radius: 16px;
+      --max: 980px;
+      --pad: 22px;
       --focus: #2563eb;
 
-      --accent: #0ea5a4;
-      --accent-soft: rgba(14, 165, 164, 0.10);
+      --accent: #0f766e;
+      --accent-soft: rgba(15, 118, 110, 0.10);
     }
 
     * {
@@ -42,14 +41,15 @@
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color: var(--ink);
       background:
-        radial-gradient(1100px 560px at 10% 10%, rgba(14, 165, 164, 0.10), transparent 60%),
-        radial-gradient(900px 520px at 90% 0%, rgba(37, 99, 235, 0.06), transparent 60%),
+        radial-gradient(1100px 640px at 15% 0%, rgba(15, 118, 110, 0.10), transparent 60%),
+        radial-gradient(900px 520px at 85% 10%, rgba(2, 132, 199, 0.06), transparent 62%),
         var(--bg);
-      line-height: 1.55;
+      line-height: 1.7;
+      letter-spacing: 0.01em;
     }
 
     a {
-      color: inherit;
+      color: var(--ink);
       text-decoration: underline;
       text-underline-offset: 3px;
     }
@@ -70,38 +70,12 @@
       padding: 0 var(--pad);
     }
 
-    section {
-      padding: 72px 0;
-    }
-
-    .section-title {
-      font-size: 30px;
-      letter-spacing: -0.02em;
-      margin: 0 0 14px;
-    }
-
-    .lead {
-      font-size: 18px;
-      color: var(--muted);
-      margin: 0 0 18px;
-      max-width: 72ch;
-    }
-
-    a:focus-visible,
-    button:focus-visible,
-    input:focus-visible,
-    textarea:focus-visible {
-      outline: 3px solid var(--focus);
-      outline-offset: 2px;
-      border-radius: 12px;
-    }
-
     header {
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(251, 250, 248, 0.88);
-      backdrop-filter: blur(12px) saturate(160%);
+      background: rgba(251, 250, 248, 0.82);
+      backdrop-filter: blur(14px) saturate(160%);
       border-bottom: 1px solid var(--border);
     }
 
@@ -109,19 +83,19 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: 14px;
       padding: 14px 0;
     }
 
     .brand {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.1;
       text-decoration: none;
+      display: grid;
+      gap: 2px;
+      line-height: 1.1;
     }
 
     .brand strong {
-      font-size: 16px;
+      font-size: 15px;
       letter-spacing: -0.01em;
     }
 
@@ -138,7 +112,7 @@
 
     .navlinks a {
       text-decoration: none;
-      color: var(--ink);
+      color: var(--muted);
       font-size: 14px;
       padding: 10px 10px;
       border-radius: 12px;
@@ -146,19 +120,19 @@
 
     .navlinks a:hover {
       background: rgba(15, 23, 42, 0.04);
+      color: var(--ink);
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
       border-radius: 999px;
       padding: 12px 16px;
       font-weight: 650;
       font-size: 14px;
       border: 1px solid var(--border);
-      background: #fff;
+      background: rgba(255, 255, 255, 0.86);
       color: var(--ink);
       text-decoration: none;
       cursor: pointer;
@@ -167,7 +141,8 @@
     }
 
     .btn:hover {
-      background: rgba(15, 23, 42, 0.03);
+      background: rgba(255, 255, 255, 0.98);
+      border-color: rgba(15, 23, 42, 0.16);
     }
 
     .btn:active {
@@ -176,257 +151,188 @@
 
     .btn-primary {
       background: var(--accent);
-      border-color: rgba(14, 165, 164, 0.30);
+      border-color: rgba(15, 118, 110, 0.25);
       color: #ffffff;
     }
 
     .btn-primary:hover {
-      background: #0891b2;
+      background: #0b6a63;
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+      border-radius: 12px;
+    }
+
+    section {
+      padding: 74px 0;
     }
 
     .hero {
-      padding: 70px 0 54px;
-      border-bottom: 1px solid var(--border);
+      padding: 72px 0 52px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 28px;
-      align-items: center;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 34px;
+      align-items: start;
     }
 
-    .hero h1 {
-      font-size: 48px;
-      line-height: 1.05;
+    h1 {
+      font-size: 44px;
+      line-height: 1.08;
       letter-spacing: -0.03em;
       margin: 0 0 12px;
-      max-width: 28ch;
     }
 
-    .subhead {
-      font-size: 18px;
+    .intro {
+      margin: 0;
       color: var(--muted);
-      margin: 0 0 18px;
-      max-width: 72ch;
+      font-size: 18px;
+      max-width: 70ch;
     }
 
-    .services-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin: 0 0 22px;
-    }
-
-    .service-chip {
-      padding: 10px 12px;
-      border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.78);
-      border-radius: 999px;
+    .meta-line {
+      margin-top: 16px;
+      color: var(--muted);
       font-size: 14px;
-      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.06);
+    }
+
+    .meta-line strong {
+      color: var(--ink);
+      font-weight: 650;
     }
 
     .hero-actions {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
+      margin-top: 22px;
     }
 
-    .hero-profile {
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.92);
-      box-shadow: var(--shadow);
-      padding: 18px;
+    .profile {
+      border-left: 1px solid var(--border);
+      padding-left: 22px;
+    }
+
+    .profile-card {
       display: grid;
-      gap: 14px;
+      gap: 12px;
+      align-items: start;
     }
 
-    .hero-profile img {
+    .profile-photo {
       width: 100%;
       height: 320px;
       object-fit: cover;
       border-radius: var(--radius);
       border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      background: rgba(255, 255, 255, 0.6);
     }
 
-    .profile-meta {
+    .profile-name {
       display: grid;
-      gap: 4px;
+      gap: 2px;
     }
 
-    .profile-meta strong {
+    .profile-name strong {
       font-size: 16px;
       letter-spacing: -0.01em;
     }
 
-    .profile-meta span {
+    .profile-name span {
+      color: var(--muted);
       font-size: 14px;
-      color: var(--muted);
     }
 
-    .grid {
+    .section-title {
+      font-size: 26px;
+      letter-spacing: -0.02em;
+      margin: 0 0 12px;
+    }
+
+    .copy {
+      color: var(--muted);
+      font-size: 17px;
+      margin: 0 0 14px;
+      max-width: 74ch;
+    }
+
+    .soft-list {
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
       display: grid;
-      gap: 18px;
+      gap: 10px;
+      max-width: 74ch;
     }
 
-    .grid-3 {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .grid-2 {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .card {
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: var(--panel);
-      padding: 18px;
-      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
-    }
-
-    .card h3 {
-      margin: 0 0 8px;
-      font-size: 16px;
-      letter-spacing: -0.01em;
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .icon-item {
+    .soft-list li {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       align-items: flex-start;
-      padding: 14px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      background: rgba(255, 255, 255, 0.86);
-      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
+      color: var(--muted);
+      font-size: 16px;
     }
 
-    .icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 14px;
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      margin-top: 9px;
+      flex: 0 0 auto;
+      opacity: 0.8;
+    }
+
+    .two-col {
       display: grid;
-      place-items: center;
-      background: var(--accent-soft);
-      border: 1px solid rgba(14, 165, 164, 0.18);
-      color: var(--accent);
-    }
-
-    .icon svg {
-      width: 20px;
-      height: 20px;
-    }
-
-    .about {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 22px;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
       align-items: start;
     }
 
-    .photo {
+    .note {
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.72);
       border-radius: var(--radius);
-      overflow: hidden;
-      border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.85);
-      box-shadow: var(--shadow);
-      aspect-ratio: 4 / 5;
+      padding: 16px;
+      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.05);
     }
 
-    .photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 16px;
-    }
-
-    .badge {
-      border: 1px solid var(--border);
-      background: rgba(15, 23, 42, 0.02);
-      border-radius: 12px;
-      padding: 8px 10px;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--ink);
-    }
-
-    .plain-list {
-      margin: 10px 0 0;
-      padding-left: 18px;
+    .note p {
+      margin: 0;
       color: var(--muted);
+      font-size: 16px;
     }
 
-    .help-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px 24px;
-      margin-top: 14px;
-    }
-
-    .help-grid div {
-      padding: 10px 12px;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.86);
-      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
-    }
-
-    .cta {
-      border-top: 1px solid var(--border);
-      background:
-        radial-gradient(800px 400px at 15% 30%, rgba(14, 165, 164, 0.12), transparent 60%),
-        rgba(255, 255, 255, 0.35);
-    }
-
-    .cta-inner {
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.90);
-      box-shadow: var(--shadow);
-      padding: 22px;
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 18px;
-      align-items: center;
-    }
-
-    .cta-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
+    .note strong {
+      color: var(--ink);
     }
 
     form {
       display: grid;
       gap: 12px;
-      margin-top: 14px;
+      max-width: 740px;
     }
 
     label {
       font-size: 14px;
-      font-weight: 700;
+      font-weight: 650;
       letter-spacing: -0.01em;
+      color: var(--ink);
     }
 
     input,
     textarea {
       width: 100%;
-      padding: 12px;
+      padding: 12px 12px;
       border-radius: 14px;
       border: 1px solid var(--border);
       font: inherit;
@@ -434,7 +340,7 @@
     }
 
     textarea {
-      min-height: 140px;
+      min-height: 150px;
       resize: vertical;
     }
 
@@ -447,50 +353,44 @@
     .fineprint {
       font-size: 12px;
       color: var(--muted);
-      margin: 6px 0 0;
+      margin: 0;
     }
 
     footer {
       border-top: 1px solid var(--border);
-      padding: 28px 0;
+      padding: 26px 0;
       color: var(--muted);
       font-size: 14px;
-      background: rgba(255, 255, 255, 0.45);
+      background: rgba(255, 255, 255, 0.32);
     }
 
     .footer-grid {
       display: grid;
       grid-template-columns: 1.3fr 0.7fr;
-      gap: 18px;
+      gap: 16px;
       align-items: start;
     }
 
     @media (max-width: 900px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
+      .navlinks {
+        display: none;
       }
 
-      .hero-profile img {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+
+      .profile {
+        border-left: none;
+        padding-left: 0;
+      }
+
+      .profile-photo {
         height: 280px;
       }
 
-      .about {
-        grid-template-columns: 1fr;
-      }
-
-      .cta-inner {
-        grid-template-columns: 1fr;
-      }
-
-      .cta-actions {
-        justify-content: flex-start;
-      }
-
-      .grid-3 {
-        grid-template-columns: 1fr;
-      }
-
-      .grid-2 {
+      .two-col {
         grid-template-columns: 1fr;
       }
 
@@ -498,18 +398,18 @@
         grid-template-columns: 1fr;
       }
 
-      .navlinks {
-        display: none;
+      section {
+        padding: 62px 0;
       }
     }
 
     @media (max-width: 520px) {
-      .hero h1 {
-        font-size: 40px;
+      h1 {
+        font-size: 38px;
       }
 
-      section {
-        padding: 60px 0;
+      .hero {
+        padding: 60px 0 44px;
       }
     }
   </style>
@@ -525,10 +425,10 @@
         </a>
 
         <nav class="navlinks" aria-label="Primary">
-          <a href="#about">About</a>
-          <a href="#how">How therapy works</a>
-          <a href="#practical">Practical info</a>
-          <a href="#help">Areas I can help with</a>
+          <a href="#about">About me</a>
+          <a href="#how">How I work</a>
+          <a href="#practical">Practical details</a>
+          <a href="#help">What I can help with</a>
           <a href="#contact">Contact</a>
         </nav>
 
@@ -542,190 +442,95 @@
       <div class="container">
         <div class="hero-grid">
           <div>
-            <h1>Counselling in Horndean, Hampshire &amp; Online</h1>
-            <p class="subhead">
-              A calm, confidential space to explore what feels painful, confusing or overwhelming.
+            <h1>Online counselling, and face to face in Horndean, Hampshire</h1>
+            <p class="intro">
+              I’m David Billington, a qualified counsellor. I offer a calm, confidential space to talk through what’s going on for you, at your pace.
             </p>
 
-            <div class="services-row" aria-label="Services">
-              <div class="service-chip">Counselling &amp; psychotherapy</div>
-              <div class="service-chip">Anxiety &amp; depression</div>
-              <div class="service-chip">Self-esteem</div>
-              <div class="service-chip">ASD &amp; neurodiversity</div>
-              <div class="service-chip">Online or in person</div>
-            </div>
+            <p class="meta-line">
+              <strong>Sessions:</strong> online across the UK, and in-person in Horndean (near Waterlooville)
+            </p>
+
+            <p class="meta-line">
+              <strong>First step:</strong> a free 20-minute introductory phone call
+            </p>
 
             <div class="hero-actions">
               <a class="btn btn-primary" href="#contact">Book a free call</a>
               <a class="btn" href="#contact">Send a message</a>
             </div>
-
-            <p class="fineprint" style="margin-top: 12px;">
-              Free 20-minute introductory call available.
-            </p>
           </div>
 
-          <aside class="hero-profile" aria-label="Profile">
-            <img src="david-headshot.jpg" alt="David Billington" loading="eager" />
-            <div class="profile-meta">
-              <strong>David Billington</strong>
-              <span>Qualified counsellor</span>
-              <span>Horndean, Hampshire &amp; online</span>
+          <aside class="profile" aria-label="Profile">
+            <div class="profile-card">
+              <img class="profile-photo" src="david-headshot.jpg" alt="David Billington" loading="eager" />
+              <div class="profile-name">
+                <strong>David Billington</strong>
+                <span>Qualified counsellor</span>
+                <span>Horndean, Hampshire &amp; online</span>
+              </div>
             </div>
           </aside>
         </div>
       </div>
     </section>
 
-    <section aria-labelledby="is-for-you">
+    <section id="help" aria-labelledby="help-title">
       <div class="container">
-        <h2 class="section-title" id="is-for-you">You might be feeling</h2>
-        <p class="lead">You don’t need to have everything figured out to begin.</p>
+        <h2 class="section-title" id="help-title">What I can help with</h2>
+        <p class="copy">
+          People come to counselling for many reasons. You might be feeling anxious, low, overwhelmed, stuck, or simply unsure why things don’t feel right.
+        </p>
 
-        <div class="grid grid-3" role="list">
-          <div class="icon-item" role="listitem">
-            <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 21s7-4.4 7-11a7 7 0 1 0-14 0c0 6.6 7 11 7 11z"></path>
-                <path d="M12 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path>
-              </svg>
-            </div>
-            <div>
-              <strong>Anxious or overwhelmed</strong>
-              <span>When worry, pressure or stress feels constant.</span>
-            </div>
-          </div>
-
-          <div class="icon-item" role="listitem">
-            <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 21a9 9 0 1 0-9-9"></path>
-                <path d="M7 10h.01"></path>
-                <path d="M17 10h.01"></path>
-                <path d="M8 15s1.5-2 4-2 4 2 4 2"></path>
-              </svg>
-            </div>
-            <div>
-              <strong>Low in confidence</strong>
-              <span>Self-doubt, criticism, or feeling not “enough”.</span>
-            </div>
-          </div>
-
-          <div class="icon-item" role="listitem">
-            <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 19c4 0 7-3 7-7s-3-7-7-7-7 3-7 7 3 7 7 7z"></path>
-                <path d="M9.5 9.5h.01"></path>
-                <path d="M14.5 9.5h.01"></path>
-                <path d="M9 14c1 1 2 1.5 3 1.5S14 15 15 14"></path>
-              </svg>
-            </div>
-            <div>
-              <strong>Struggling with depression</strong>
-              <span>Low mood, numbness, or feeling disconnected.</span>
-            </div>
-          </div>
-
-          <div class="icon-item" role="listitem">
-            <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2v4"></path>
-                <path d="M12 18v4"></path>
-                <path d="M4.9 4.9l2.8 2.8"></path>
-                <path d="M16.3 16.3l2.8 2.8"></path>
-                <path d="M2 12h4"></path>
-                <path d="M18 12h4"></path>
-                <path d="M4.9 19.1l2.8-2.8"></path>
-                <path d="M16.3 7.7l2.8-2.8"></path>
-                <circle cx="12" cy="12" r="3"></circle>
-              </svg>
-            </div>
-            <div>
-              <strong>Navigating neurodiversity</strong>
-              <span>Autism, ADHD, or feeling out of step with others.</span>
-            </div>
-          </div>
-
-          <div class="icon-item" role="listitem">
-            <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20.8 12.6A9 9 0 1 1 11.4 3.2"></path>
-                <path d="M22 6l-10 10"></path>
-                <path d="M16 6h6v6"></path>
-              </svg>
-            </div>
-            <div>
-              <strong>Coping with loss</strong>
-              <span>Grief, change, or life feeling different than before.</span>
-            </div>
-          </div>
-
-          <div class="icon-item" role="listitem">
-            <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2a10 10 0 1 0 10 10"></path>
-                <path d="M12 8v5"></path>
-                <path d="M12 17h.01"></path>
-              </svg>
-            </div>
-            <div>
-              <strong>Feeling stuck</strong>
-              <span>Unsure what you need, but knowing something isn’t right.</span>
-            </div>
-          </div>
-        </div>
+        <ul class="soft-list">
+          <li><span class="dot" aria-hidden="true"></span><span>Anxiety, stress and feeling overwhelmed</span></li>
+          <li><span class="dot" aria-hidden="true"></span><span>Depression and low mood</span></li>
+          <li><span class="dot" aria-hidden="true"></span><span>Low self-esteem and confidence</span></li>
+          <li><span class="dot" aria-hidden="true"></span><span>Autism, ADHD and neurodiversity</span></li>
+          <li><span class="dot" aria-hidden="true"></span><span>Loss, bereavement and life transitions</span></li>
+          <li><span class="dot" aria-hidden="true"></span><span>Trauma and difficult experiences</span></li>
+        </ul>
       </div>
     </section>
 
     <section id="about" aria-labelledby="about-title">
       <div class="container">
-        <div class="about">
-          <div class="photo" aria-label="David Billington headshot">
-            <img src="david-headshot.jpg" alt="David Billington" loading="lazy" />
-          </div>
+        <h2 class="section-title" id="about-title">About me</h2>
+        <p class="copy">
+          I run a private practice offering online sessions, and face-to-face counselling in Horndean, Hampshire. I also work for I’m All Ears counselling service in Surrey.
+        </p>
+        <p class="copy">
+          I am a member of the British Association for Counselling and Psychotherapy (BACP) and I work within their ethical framework for good practice.
+        </p>
 
-          <div>
-            <h2 class="section-title" id="about-title">About David</h2>
-            <p class="lead">
-              I’m David Billington, a qualified counsellor. I offer face-to-face sessions in Horndean, Hampshire, as well as online therapy.
-            </p>
-
-            <p style="margin: 0 0 12px;">
-              My approach is warm, collaborative and grounded. Together, we explore your thoughts and experiences at a pace that feels safe.
-            </p>
-
-            <p style="margin: 0;">
-              I am a registered member of the British Association for Counselling and Psychotherapy (BACP) and work within their ethical framework.
-            </p>
-
-            <div class="badges" aria-label="Key points">
-              <span class="badge">BACP registered member</span>
-              <span class="badge">Adults 18+</span>
-              <span class="badge">Confidential &amp; ethical practice</span>
-              <span class="badge">Flexible day &amp; evening appointments</span>
-            </div>
-          </div>
+        <div class="note" aria-label="Membership">
+          <p>
+            <strong>BACP profile:</strong>
+            <a href="https://www.bacp.co.uk/therapists/399649/david-billington/waterlooville-po8" target="_blank" rel="noopener">View registration</a>
+          </p>
         </div>
       </div>
     </section>
 
     <section id="how" aria-labelledby="how-title">
       <div class="container">
-        <h2 class="section-title" id="how-title">How therapy works</h2>
-        <p class="lead">Therapy is not about being “fixed”. It is about understanding yourself more deeply.</p>
+        <h2 class="section-title" id="how-title">How I work</h2>
+        <p class="copy">
+          Everyone experiences challenges, and sometimes we need additional support to navigate and overcome them. As a trained psychotherapist, I offer a professional and skilled approach through a process of self-exploration and discovery within the therapeutic relationship.
+        </p>
+        <p class="copy">
+          My aim is to help you explore and understand your thoughts, feelings and behaviours in order to support healing and growth.
+        </p>
 
-        <div class="grid grid-2">
-          <div class="card">
-            <h3>What we do together</h3>
+        <div class="two-col">
+          <div class="note">
             <p>
-              Through conversation, reflection and gentle challenge, we explore patterns, emotions and experiences that may be shaping your current difficulties.
+              <strong>Your first session:</strong> before you decide to proceed, I offer a complimentary 20-minute phone call so we can talk through what you’re looking for and any questions you may have.
             </p>
           </div>
-
-          <div class="card">
-            <h3>Session structure</h3>
+          <div class="note">
             <p>
-              Sessions are 50 minutes and usually take place weekly at a consistent time. We regularly review our work to ensure it feels helpful and supportive.
+              <strong>Sessions:</strong> appointments are typically weekly at a consistent time. Sessions are 50 minutes, and we’ll regularly review how the work is feeling for you.
             </p>
           </div>
         </div>
@@ -734,75 +539,20 @@
 
     <section id="practical" aria-labelledby="practical-title">
       <div class="container">
-        <h2 class="section-title" id="practical-title">Practical information</h2>
-
-        <div class="grid grid-3">
-          <div class="card soft">
-            <h3>In-person sessions</h3>
-            <p>Private and confidential setting in Horndean, Hampshire.</p>
-            <ul class="plain-list">
-              <li>On-street parking available</li>
-              <li>Bus stop 2 minutes away</li>
-            </ul>
-          </div>
-
-          <div class="card soft">
-            <h3>Online sessions</h3>
-            <p>Secure video sessions that are convenient and effective.</p>
-            <ul class="plain-list">
-              <li>Suitable if travel feels stressful</li>
-              <li>Access therapy from your own space</li>
-            </ul>
-          </div>
-
-          <div class="card soft">
-            <h3>Availability</h3>
-            <p>Mondays, Wednesdays and Thursdays.</p>
-            <ul class="plain-list">
-              <li>Daytime and evening appointments</li>
-              <li>Free 20-minute introductory call</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="help" aria-labelledby="help-title">
-      <div class="container">
-        <h2 class="section-title" id="help-title">Areas I can help with</h2>
-
-        <div class="help-grid" role="list" aria-label="Areas of support">
-          <div role="listitem">Anxiety</div>
-          <div role="listitem">Depression</div>
-          <div role="listitem">Low self-esteem</div>
-          <div role="listitem">Autism &amp; neurodiversity</div>
-          <div role="listitem">ADHD / ADD</div>
-          <div role="listitem">Bereavement &amp; loss</div>
-          <div role="listitem">Stress</div>
-          <div role="listitem">Trauma</div>
-          <div role="listitem">Health-related concerns</div>
-        </div>
-
-        <p class="lead" style="margin-top: 18px;">
-          I work integratively, drawing from person-centred, existential and humanistic approaches depending on your needs.
-        </p>
-      </div>
-    </section>
-
-    <section class="cta" aria-labelledby="cta-title">
-      <div class="container">
-        <div class="cta-inner">
+        <h2 class="section-title" id="practical-title">Practical details</h2>
+        <div class="two-col">
           <div>
-            <h2 class="section-title" id="cta-title" style="margin: 0 0 10px;">Taking the first step</h2>
-            <p style="margin: 0; color: var(--muted);">
-              Reaching out can feel difficult. You may not know exactly what you need — and that’s okay.
-              If you would like to explore whether therapy with me feels right, I invite you to arrange a free introductory call.
+            <p class="copy">
+              I work online and in person from a private and confidential setting in Horndean. Many people find online sessions highly effective because you can meet from a familiar space, and travel can be difficult or anxiety-provoking.
             </p>
           </div>
-
-          <div class="cta-actions">
-            <a class="btn btn-primary" href="#contact">Arrange a free call</a>
-            <a class="btn" href="#contact">Email David</a>
+          <div>
+            <ul class="soft-list">
+              <li><span class="dot" aria-hidden="true"></span><span>Online therapy available across the UK</span></li>
+              <li><span class="dot" aria-hidden="true"></span><span>In-person sessions in Horndean (near Waterlooville)</span></li>
+              <li><span class="dot" aria-hidden="true"></span><span>Bus stop within a short walk, with on-street parking</span></li>
+              <li><span class="dot" aria-hidden="true"></span><span>Currently working Mondays, Wednesdays and Thursdays</span></li>
+            </ul>
           </div>
         </div>
       </div>
@@ -811,23 +561,20 @@
     <section id="contact" aria-labelledby="contact-title">
       <div class="container">
         <h2 class="section-title" id="contact-title">Contact</h2>
-        <p class="lead">
-          If you’d like to arrange a free introductory call, or ask a question, you can phone, email, or send a message below.
+        <p class="copy">
+          If you’d like to book a free introductory call, or send a message, you’re welcome to get in touch.
         </p>
 
-        <div class="grid grid-2">
-          <div class="card">
-            <h3>Get in touch</h3>
-            <p style="margin-bottom: 12px; color: var(--muted);">
-              Phone: <a href="tel:+447423819260">07423 819 260</a><br />
-              Email: <a href="mailto:hello@thejourneytowholeness.com">hello@thejourneytowholeness.com</a><br />
-              BACP: <a href="https://www.bacp.co.uk/therapists/399649/david-billington/waterlooville-po8" target="_blank" rel="noopener">View profile</a>
+        <div class="two-col">
+          <div class="note">
+            <p><strong>Phone:</strong> <a href="tel:+447423819260">07423 819 260</a></p>
+            <p style="margin: 8px 0 0;"><strong>Email:</strong> <a href="mailto:hello@thejourneytowholeness.com">hello@thejourneytowholeness.com</a></p>
+            <p class="fineprint" style="margin-top: 10px;">
+              If you prefer, you can send a short message and I’ll reply to arrange a time.
             </p>
-            <p class="fineprint">If you prefer, you can simply send a message and I’ll reply to arrange a time.</p>
           </div>
 
-          <div class="card">
-            <h3>Send a message</h3>
+          <div>
             <form action="#" method="post" onsubmit="event.preventDefault(); alert('Form not connected yet.');">
               <div class="form-row">
                 <div>
@@ -862,12 +609,8 @@
       <div class="footer-grid">
         <div>
           <strong style="color: var(--ink);">David Billington</strong><br />
-          Counselling in Horndean, Hampshire &amp; Online
-          <div class="fineprint" style="margin-top: 10px;">
-            Serving Horndean, Waterlooville and surrounding Hampshire areas, with online therapy available across the UK.
-          </div>
+          Online counselling, and face to face in Horndean, Hampshire
         </div>
-
         <div>
           <div><a href="tel:+447423819260">07423 819 260</a></div>
           <div><a href="mailto:hello@thejourneytowholeness.com">hello@thejourneytowholeness.com</a></div>
