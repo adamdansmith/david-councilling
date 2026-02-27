@@ -13,19 +13,22 @@
 
   <style>
     :root {
-      --ink: #0f2f2e;
-      --ink2: #123b39;
-      --sage: #2f6b5f;
-      --sage2: #3a7c6f;
-      --sand: #f4efe7;
-      --mist: #eef4f1;
-      --muted: #3d5b58;
-      --shadow: 0 18px 40px rgba(15, 47, 46, 0.12);
-      --radius: 18px;
+      --bg: #fbfaf8;
+      --panel: #ffffff;
+      --ink: #0f172a;
+      --muted: #475569;
+      --border: rgba(15, 23, 42, 0.10);
+      --shadow: 0 14px 32px rgba(15, 23, 42, 0.08);
+      --radius: 20px;
       --radius-sm: 14px;
       --max: 1100px;
       --pad: 24px;
-      --focus: #2b6cff;
+      --focus: #2563eb;
+
+      --accent: #0ea5a4;
+      --accent-ink: #0f766e;
+      --accent-soft: rgba(14, 165, 164, 0.10);
+
       --heroImage: url("david-headshot.jpg");
     }
 
@@ -41,13 +44,16 @@
       margin: 0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color: var(--ink);
-      background: linear-gradient(180deg, var(--sand) 0%, #fff 40%, #fff 100%);
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(14, 165, 164, 0.10), transparent 60%),
+                  radial-gradient(900px 500px at 90% 0%, rgba(37, 99, 235, 0.08), transparent 60%),
+                  var(--bg);
       line-height: 1.55;
     }
 
     a {
-      color: var(--ink);
+      color: inherit;
       text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
     a:hover {
@@ -67,7 +73,7 @@
     }
 
     section {
-      padding: 76px 0;
+      padding: 80px 0;
     }
 
     .section-title {
@@ -96,9 +102,9 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(244, 239, 231, 0.85);
-      backdrop-filter: saturate(180%) blur(10px);
-      border-bottom: 1px solid rgba(15, 47, 46, 0.10);
+      background: rgba(251, 250, 248, 0.85);
+      backdrop-filter: blur(12px) saturate(160%);
+      border-bottom: 1px solid var(--border);
     }
 
     .nav {
@@ -118,6 +124,7 @@
 
     .brand strong {
       font-size: 16px;
+      letter-spacing: -0.01em;
     }
 
     .brand span {
@@ -135,12 +142,12 @@
       text-decoration: none;
       color: var(--ink);
       font-size: 14px;
-      padding: 8px 10px;
+      padding: 10px 10px;
       border-radius: 12px;
     }
 
     .navlinks a:hover {
-      background: rgba(47, 107, 95, 0.10);
+      background: rgba(15, 23, 42, 0.04);
     }
 
     .btn {
@@ -150,38 +157,40 @@
       gap: 10px;
       border-radius: 999px;
       padding: 12px 16px;
-      font-weight: 700;
+      font-weight: 650;
       font-size: 14px;
-      border: 1px solid rgba(15, 47, 46, 0.18);
+      border: 1px solid var(--border);
       background: #fff;
       color: var(--ink);
       text-decoration: none;
       cursor: pointer;
-      transition: 0.15s;
+      transition: transform 0.08s ease, background 0.15s ease, border-color 0.15s ease;
       white-space: nowrap;
     }
 
     .btn:hover {
-      background: rgba(47, 107, 95, 0.08);
+      background: rgba(15, 23, 42, 0.03);
+    }
+
+    .btn:active {
+      transform: translateY(1px);
     }
 
     .btn-primary {
-      background: linear-gradient(180deg, var(--sage) 0%, var(--ink2) 100%);
-      color: #fff;
-      border-color: rgba(15, 47, 46, 0.25);
-      box-shadow: 0 12px 24px rgba(15, 47, 46, 0.18);
+      background: var(--accent);
+      border-color: rgba(14, 165, 164, 0.30);
+      color: #ffffff;
     }
 
     .btn-primary:hover {
-      background: linear-gradient(180deg, var(--sage2) 0%, var(--ink2) 100%);
+      background: #0891b2;
     }
 
     .hero {
-      padding: 64px 0 46px;
+      padding: 66px 0 52px;
       position: relative;
       overflow: hidden;
-      border-bottom: 1px solid rgba(15, 47, 46, 0.10);
-      background: var(--sand);
+      border-bottom: 1px solid var(--border);
     }
 
     .hero::before {
@@ -189,21 +198,12 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(
-          90deg,
-          rgba(244, 239, 231, 0.90) 0%,
-          rgba(244, 239, 231, 0.70) 45%,
-          rgba(244, 239, 231, 0.40) 100%
-        ),
-        linear-gradient(
-          180deg,
-          rgba(15, 47, 46, 0.35) 0%,
-          rgba(15, 47, 46, 0) 55%
-        ),
+        linear-gradient(90deg, rgba(251, 250, 248, 0.92) 0%, rgba(251, 250, 248, 0.82) 45%, rgba(251, 250, 248, 0.55) 100%),
         var(--heroImage);
       background-size: cover;
       background-position: center;
-      transform: scale(1.02);
+      transform: scale(1.03);
+      filter: saturate(1.05) contrast(1.02);
     }
 
     .hero-grid {
@@ -233,7 +233,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin: 16px 0 22px;
+      margin: 18px 0 22px;
     }
 
     .pill {
@@ -241,11 +241,11 @@
       align-items: center;
       gap: 10px;
       padding: 10px 12px;
-      border: 1px solid rgba(15, 47, 46, 0.16);
-      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.78);
       border-radius: 999px;
       font-size: 14px;
-      box-shadow: 0 10px 22px rgba(15, 47, 46, 0.08);
+      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.06);
     }
 
     .hero-actions {
@@ -256,9 +256,9 @@
     }
 
     .hero-card {
-      border: 1px solid rgba(15, 47, 46, 0.16);
+      border: 1px solid var(--border);
       border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.90);
+      background: rgba(255, 255, 255, 0.84);
       box-shadow: var(--shadow);
       padding: 18px;
     }
@@ -270,8 +270,8 @@
       align-items: center;
       padding: 12px;
       border-radius: 16px;
-      background: rgba(47, 107, 95, 0.08);
-      border: 1px solid rgba(47, 107, 95, 0.18);
+      background: rgba(15, 23, 42, 0.03);
+      border: 1px solid var(--border);
       margin-bottom: 12px;
     }
 
@@ -280,13 +280,13 @@
       height: 74px;
       object-fit: cover;
       border-radius: 16px;
-      border: 1px solid rgba(15, 47, 46, 0.18);
-      box-shadow: 0 10px 20px rgba(15, 47, 46, 0.12);
+      border: 1px solid var(--border);
     }
 
     .headshot-top strong {
       display: block;
       font-size: 15px;
+      letter-spacing: -0.01em;
     }
 
     .headshot-top span {
@@ -307,8 +307,8 @@
     .contact-item {
       padding: 10px;
       border-radius: 14px;
-      background: rgba(244, 239, 231, 0.70);
-      border: 1px solid rgba(15, 47, 46, 0.14);
+      background: rgba(15, 23, 42, 0.03);
+      border: 1px solid var(--border);
     }
 
     .grid {
@@ -325,24 +325,21 @@
     }
 
     .card {
-      border: 1px solid rgba(15, 47, 46, 0.14);
+      border: 1px solid var(--border);
       border-radius: var(--radius);
-      background: #fff;
+      background: var(--panel);
       padding: 18px;
-      box-shadow: 0 10px 24px rgba(15, 47, 46, 0.08);
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
     }
 
     .card.soft {
-      background: linear-gradient(
-        180deg,
-        rgba(238, 244, 241, 0.95) 0%,
-        rgba(255, 255, 255, 0.96) 100%
-      );
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(15, 23, 42, 0.02) 100%);
     }
 
     .card h3 {
       margin: 0 0 8px;
       font-size: 16px;
+      letter-spacing: -0.01em;
     }
 
     .card p {
@@ -355,10 +352,10 @@
       gap: 12px;
       align-items: flex-start;
       padding: 14px;
-      border: 1px solid rgba(15, 47, 46, 0.14);
+      border: 1px solid var(--border);
       border-radius: var(--radius-sm);
-      background: rgba(255, 255, 255, 0.90);
-      box-shadow: 0 10px 20px rgba(15, 47, 46, 0.08);
+      background: rgba(255, 255, 255, 0.86);
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
     }
 
     .icon {
@@ -367,17 +364,14 @@
       border-radius: 14px;
       display: grid;
       place-items: center;
-      background: linear-gradient(
-        180deg,
-        rgba(47, 107, 95, 0.18) 0%,
-        rgba(47, 107, 95, 0.08) 100%
-      );
-      border: 1px solid rgba(47, 107, 95, 0.22);
+      background: var(--accent-soft);
+      border: 1px solid rgba(14, 165, 164, 0.18);
     }
 
     .icon-item strong {
       display: block;
       margin-bottom: 4px;
+      letter-spacing: -0.01em;
     }
 
     .icon-item span {
@@ -395,7 +389,7 @@
     .photo {
       border-radius: var(--radius);
       overflow: hidden;
-      border: 1px solid rgba(15, 47, 46, 0.14);
+      border: 1px solid var(--border);
       background: rgba(255, 255, 255, 0.85);
       box-shadow: var(--shadow);
       aspect-ratio: 4 / 5;
@@ -415,12 +409,13 @@
     }
 
     .badge {
-      border: 1px solid rgba(47, 107, 95, 0.22);
-      background: rgba(47, 107, 95, 0.08);
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.02);
       border-radius: 999px;
       padding: 8px 10px;
       font-size: 13px;
       font-weight: 600;
+      color: var(--ink);
     }
 
     .plain-list {
@@ -438,23 +433,20 @@
 
     .help-grid div {
       padding: 10px 12px;
-      border: 1px solid rgba(15, 47, 46, 0.14);
+      border: 1px solid var(--border);
       border-radius: 14px;
-      background: rgba(255, 255, 255, 0.90);
-      box-shadow: 0 10px 18px rgba(15, 47, 46, 0.08);
+      background: rgba(255, 255, 255, 0.86);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
     }
 
     .cta {
-      border-top: 1px solid rgba(15, 47, 46, 0.10);
-      background: linear-gradient(
-        180deg,
-        rgba(238, 244, 241, 0.90) 0%,
-        rgba(244, 239, 231, 0.75) 100%
-      );
+      border-top: 1px solid var(--border);
+      background: radial-gradient(800px 400px at 15% 30%, rgba(14, 165, 164, 0.12), transparent 60%),
+                  rgba(255, 255, 255, 0.35);
     }
 
     .cta-inner {
-      border: 1px solid rgba(15, 47, 46, 0.14);
+      border: 1px solid var(--border);
       border-radius: var(--radius);
       background: rgba(255, 255, 255, 0.90);
       box-shadow: var(--shadow);
@@ -481,6 +473,7 @@
     label {
       font-size: 14px;
       font-weight: 700;
+      letter-spacing: -0.01em;
     }
 
     input,
@@ -488,7 +481,7 @@
       width: 100%;
       padding: 12px;
       border-radius: 14px;
-      border: 1px solid rgba(15, 47, 46, 0.18);
+      border: 1px solid var(--border);
       font: inherit;
       background: rgba(255, 255, 255, 0.92);
     }
@@ -511,11 +504,11 @@
     }
 
     footer {
-      border-top: 1px solid rgba(15, 47, 46, 0.10);
+      border-top: 1px solid var(--border);
       padding: 28px 0;
       color: var(--muted);
       font-size: 14px;
-      background: rgba(244, 239, 231, 0.65);
+      background: rgba(255, 255, 255, 0.45);
     }
 
     .footer-grid {
@@ -523,10 +516,6 @@
       grid-template-columns: 1.3fr 0.7fr;
       gap: 18px;
       align-items: start;
-    }
-
-    .footer-grid a {
-      color: var(--ink);
     }
 
     @media (max-width: 900px) {
@@ -569,7 +558,7 @@
       }
 
       section {
-        padding: 58px 0;
+        padding: 60px 0;
       }
     }
   </style>
@@ -643,11 +632,7 @@
               </li>
               <li class="contact-item">
                 <strong>BACP profile</strong><br />
-                <a
-                  href="https://www.bacp.co.uk/therapists/399649/david-billington/waterlooville-po8"
-                  target="_blank"
-                  rel="noopener"
-                >View registration</a>
+                <a href="https://www.bacp.co.uk/therapists/399649/david-billington/waterlooville-po8" target="_blank" rel="noopener">View registration</a>
               </li>
             </ul>
           </aside>
@@ -673,244 +658,12 @@
             <div class="icon" aria-hidden="true"></div>
             <div>
               <strong>Low in confidence</strong>
-              <span>Self-doubt, criticism, or feeling not “enough”.</span>
+              <span>Self-doubt, criticism, or feeling not “enough”.span>
             </div>
-          </div>
-
-          <div class="icon-item" role="listitem">
-            <div class="icon" aria-hidden="true"></div>
-            <div>
-              <strong>Struggling with depression</strong>
-              <span>Low mood, numbness, or disconnection.</span>
-            </div>
-          </div>
-
-          <div class="icon-item" role="listitem">
-            <div class="icon" aria-hidden="true"></div>
-            <div>
-              <strong>Navigating neurodiversity</strong>
-              <span>Autism, ADHD, or feeling out of step.</span>
-            </div>
-          </div>
-
-          <div class="icon-item" role="listitem">
-            <div class="icon" aria-hidden="true"></div>
-            <div>
-              <strong>Coping with loss</strong>
-              <span>Grief, change, or life feeling different.</span>
-            </div>
-          </div>
-
-          <div class="icon-item" role="listitem">
-            <div class="icon" aria-hidden="true"></div>
-            <div>
-              <strong>Feeling stuck</strong>
-              <span>Unsure what you need, but knowing something isn’t right.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="about" aria-labelledby="about-title">
-      <div class="container">
-        <div class="about">
-          <div class="photo" aria-label="David Billington headshot">
-            <img src="david-headshot.jpg" alt="David Billington" loading="lazy" />
-          </div>
-
-          <div>
-            <h2 class="section-title" id="about-title">About David</h2>
-            <p class="lead">
-              I’m David Billington, a qualified counsellor. I offer face-to-face sessions in Horndean, Hampshire, as well as online therapy.
-            </p>
-            <p style="margin: 0 0 12px;">
-              My approach is warm, collaborative and grounded. Together, we explore your thoughts and experiences at a pace that feels safe.
-            </p>
-            <p style="margin: 0;">
-              I am a registered member of the British Association for Counselling and Psychotherapy (BACP) and work within their ethical framework.
-            </p>
-
-            <div class="badges" aria-label="Key points">
-              <span class="badge">BACP registered member</span>
-              <span class="badge">Adults 18+</span>
-              <span class="badge">Confidential &amp; ethical practice</span>
-              <span class="badge">Flexible day &amp; evening appointments</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="how" aria-labelledby="how-title">
-      <div class="container">
-        <h2 class="section-title" id="how-title">How therapy works</h2>
-        <p class="lead">Therapy is not about being “fixed”. It is about understanding yourself more deeply.</p>
-
-        <div class="grid grid-2">
-          <div class="card">
-            <h3>What we do together</h3>
-            <p>
-              Through conversation, reflection and gentle challenge, we explore patterns, emotions and experiences that may be shaping your current difficulties.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Session structure</h3>
-            <p>
-              Sessions are 50 minutes and usually take place weekly at a consistent time. We regularly review our work to ensure it feels helpful and supportive.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="practical" aria-labelledby="practical-title">
-      <div class="container">
-        <h2 class="section-title" id="practical-title">Practical information</h2>
-
-        <div class="grid grid-3">
-          <div class="card soft">
-            <h3>In-person sessions</h3>
-            <p>Private and confidential setting in Horndean, Hampshire.</p>
-            <ul class="plain-list">
-              <li>On-street parking available</li>
-              <li>Bus stop 2 minutes away</li>
-            </ul>
-          </div>
-
-          <div class="card soft">
-            <h3>Online sessions</h3>
-            <p>Secure video sessions that are convenient and effective.</p>
-            <ul class="plain-list">
-              <li>Suitable if travel feels stressful</li>
-              <li>Access therapy from your own space</li>
-            </ul>
-          </div>
-
-          <div class="card soft">
-            <h3>Availability</h3>
-            <p>Mondays, Wednesdays and Thursdays.</p>
-            <ul class="plain-list">
-              <li>Daytime and evening appointments</li>
-              <li>Free 20-minute introductory call</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="help" aria-labelledby="help-title">
-      <div class="container">
-        <h2 class="section-title" id="help-title">Areas I can help with</h2>
-
-        <div class="help-grid" role="list" aria-label="Areas of support">
-          <div role="listitem">Anxiety</div>
-          <div role="listitem">Depression</div>
-          <div role="listitem">Low self-esteem</div>
-          <div role="listitem">Autism &amp; neurodiversity</div>
-          <div role="listitem">ADHD / ADD</div>
-          <div role="listitem">Bereavement &amp; loss</div>
-          <div role="listitem">Stress</div>
-          <div role="listitem">Trauma</div>
-          <div role="listitem">Health-related concerns</div>
-        </div>
-
-        <p class="lead" style="margin-top: 18px;">
-          I work integratively, drawing from person-centred, existential and humanistic approaches depending on your needs.
-        </p>
-      </div>
-    </section>
-
-    <section class="cta" aria-labelledby="cta-title">
-      <div class="container">
-        <div class="cta-inner">
-          <div>
-            <h2 class="section-title" id="cta-title" style="margin: 0 0 10px;">Taking the first step</h2>
-            <p style="margin: 0; color: var(--muted);">
-              Reaching out can feel difficult. You may not know exactly what you need — and that’s okay.
-              If you would like to explore whether therapy with me feels right, I invite you to arrange a free introductory call.
-            </p>
-          </div>
-
-          <div class="cta-actions">
-            <a class="btn btn-primary" href="#contact">Arrange a free call</a>
-            <a class="btn" href="#contact">Email David</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" aria-labelledby="contact-title">
-      <div class="container">
-        <h2 class="section-title" id="contact-title">Contact</h2>
-        <p class="lead">
-          If you’d like to arrange a free introductory call, or ask a question, you can phone, email, or send a message below.
-        </p>
-
-        <div class="grid grid-2">
-          <div class="card">
-            <h3>Get in touch</h3>
-            <p style="margin-bottom: 12px; color: var(--muted);">
-              Phone: <a href="tel:+447423819260">07423 819 260</a><br />
-              Email: <a href="mailto:hello@thejourneytowholeness.com">hello@thejourneytowholeness.com</a><br />
-              BACP: <a
-                href="https://www.bacp.co.uk/therapists/399649/david-billington/waterlooville-po8"
-                target="_blank"
-                rel="noopener"
-              >View profile</a>
-            </p>
-            <p class="fineprint">If you prefer, you can simply send a message and I’ll reply to arrange a time.</p>
-          </div>
-
-          <div class="card">
-            <h3>Send a message</h3>
-            <form action="#" method="post" onsubmit="event.preventDefault(); alert('Form not connected yet.');">
-              <div class="form-row">
-                <div>
-                  <label for="name">Name</label>
-                  <input id="name" name="name" type="text" autocomplete="name" required />
-                </div>
-                <div>
-                  <label for="email">Email</label>
-                  <input id="email" name="email" type="email" autocomplete="email" required />
-                </div>
-              </div>
-
-              <div>
-                <label for="message">Message</label>
-                <textarea id="message" name="message" required></textarea>
-              </div>
-
-              <button class="btn btn-primary" type="submit">Send message</button>
-              <p class="fineprint">
-                Please avoid sharing highly sensitive personal details in this form. We can discuss anything important in the introductory call.
-              </p>
-            </form>
           </div>
         </div>
       </div>
     </section>
   </main>
-
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <strong style="color: var(--ink);">David Billington</strong><br />
-          Counselling in Horndean, Hampshire &amp; Online
-          <div class="fineprint" style="margin-top: 10px;">
-            Serving Horndean, Waterlooville and surrounding Hampshire areas, with online therapy available across the UK.
-          </div>
-        </div>
-
-        <div>
-          <div><a href="tel:+447423819260">07423 819 260</a></div>
-          <div><a href="mailto:hello@thejourneytowholeness.com">hello@thejourneytowholeness.com</a></div>
-          <div><a href="https://www.bacp.co.uk/therapists/399649/david-billington/waterlooville-po8" target="_blank" rel="noopener">BACP profile</a></div>
-        </div>
-      </div>
-    </div>
-  </footer>
 </body>
 </html>
