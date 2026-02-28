@@ -116,34 +116,6 @@
 
     .btn-primary:hover{background:#1a1b20;border-color:#1a1b20}
 
-    .tabs{
-      display:flex;
-      gap:6px;
-      padding:0 0 var(--s3);
-      overflow-x:auto;
-      scrollbar-width:none;
-    }
-
-    .tabs::-webkit-scrollbar{display:none}
-
-    .tab{
-      padding:9px 10px;
-      border-radius:999px;
-      border:1px solid transparent;
-      color:var(--muted);
-      font-size:13px;
-      font-weight:560;
-      white-space:nowrap;
-      transition:background 160ms ease,border-color 160ms ease,color 160ms ease;
-    }
-
-    .tab:hover{
-      background:rgba(16,17,20,.03);
-      border-color:rgba(16,17,20,.10);
-      color:var(--ink);
-      text-decoration:none;
-    }
-
     section{padding:var(--s6) 0}
     .section-tight{padding:calc(var(--s6) - 10px) 0}
 
@@ -395,7 +367,6 @@
       .reveal{opacity:1;transform:none;transition:none}
       html{scroll-behavior:auto}
       .btn{transition:none}
-      .tab{transition:none}
     }
 
     @media (max-width: 900px){
@@ -420,15 +391,6 @@
         </a>
         <a class="btn btn-primary" href="#contact">Book a free call</a>
       </div>
-
-      <nav class="tabs" aria-label="Page sections">
-        <a class="tab" href="#help">What I can help with</a>
-        <a class="tab" href="#start">Getting started</a>
-        <a class="tab" href="#practice">My practice</a>
-        <a class="tab" href="#how">How I work</a>
-        <a class="tab" href="#therapy">Therapy approaches</a>
-        <a class="tab" href="#contact">Contact</a>
-      </nav>
     </div>
   </header>
 
