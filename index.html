@@ -7,423 +7,719 @@
   <title>Counselling in Horndean | David Billington | Online & Hampshire</title>
   <meta
     name="description"
-    content="Confidential counselling in Horndean, Hampshire and online. Free 20-minute introductory call. Support for anxiety, depression, ADHD, autism spectrum and more."
+    content="Confidential counselling in Horndean, Hampshire and online. Free 20-minute introductory call. Support for ADD/ADHD, anxiety, autism spectrum, bereavement, depression and more."
   />
   <meta name="robots" content="index,follow" />
 
   <link rel="icon" href="/favicon.ico" sizes="any" />
 
   <style>
-    :root {
-      --bg: #f7f7f7;
-      --panel: #ffffff;
-      --ink: #111111;
-      --muted: #555555;
-      --border: rgba(0,0,0,0.08);
-      --radius: 14px;
-      --max: 1100px;
-      --pad: 24px;
+    :root{
+      --bg:#f6f6f6;
+      --panel:#ffffff;
+      --ink:#101114;
+      --muted:rgba(16,17,20,.72);
+      --border:rgba(16,17,20,.10);
+      --radius:14px;
+      --max:1100px;
+      --pad:24px;
+
+      --s1:8px;
+      --s2:12px;
+      --s3:16px;
+      --s4:22px;
+      --s5:30px;
+      --s6:38px;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      color: var(--ink);
-      background: var(--bg);
-      line-height: 1.65;
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      color:var(--ink);
+      background:var(--bg);
+      line-height:1.65;
+      text-rendering:optimizeLegibility;
+      -webkit-font-smoothing:antialiased;
     }
 
-    .container {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 var(--pad);
+    a{color:inherit;text-decoration:none}
+    a:hover{text-decoration:underline;text-underline-offset:3px}
+
+    .container{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(246,246,246,.88);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--border);
     }
 
-    header {
-      background: #ffffff;
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 10;
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:var(--s3);
+      padding:var(--s3) 0 var(--s2);
     }
 
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 0;
+    .brand{
+      display:grid;
+      gap:2px;
+      line-height:1.15;
     }
 
-    .brand {
-      text-decoration: none;
-      color: var(--ink);
-      display: grid;
-      gap: 2px;
+    .brand strong{
+      font-size:15px;
+      letter-spacing:-.01em;
     }
 
-    .brand strong {
-      font-size: 15px;
-      letter-spacing: -0.01em;
+    .brand span{
+      font-size:13px;
+      color:var(--muted);
     }
 
-    .brand span {
-      font-size: 13px;
-      color: var(--muted);
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:var(--panel);
+      font-weight:620;
+      font-size:14px;
+      color:var(--ink);
+      transition:transform 160ms ease, background 160ms ease, border-color 160ms ease, opacity 160ms ease;
+      white-space:nowrap;
+      cursor:pointer;
     }
 
-    .btn {
-      padding: 10px 16px;
-      border-radius: 999px;
-      border: 1px solid var(--ink);
-      background: var(--ink);
-      color: #ffffff;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 600;
+    .btn:hover{
+      background:rgba(16,17,20,.02);
+      border-color:rgba(16,17,20,.16);
+      text-decoration:none;
     }
 
-    section { padding: 80px 0; }
+    .btn:active{transform:translateY(1px)}
+    .btn-primary{
+      background:var(--ink);
+      border-color:var(--ink);
+      color:#fff;
+    }
+    .btn-primary:hover{background:#1a1b20;border-color:#1a1b20}
 
-    .hero {
-      padding: 70px 0 50px;
-      border-bottom: 1px solid var(--border);
-      background: linear-gradient(to bottom, #ffffff 0%, #f7f7f7 100%);
+    .tabs{
+      display:flex;
+      gap:6px;
+      padding:0 0 var(--s3);
+      overflow-x:auto;
+      scrollbar-width:none;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.3fr 0.7fr;
-      gap: 40px;
-      align-items: center;
+    .tabs::-webkit-scrollbar{display:none}
+
+    .tab{
+      padding:9px 10px;
+      border-radius:999px;
+      border:1px solid transparent;
+      color:var(--muted);
+      font-size:13px;
+      font-weight:560;
+      white-space:nowrap;
+      transition:background 160ms ease,border-color 160ms ease,color 160ms ease;
     }
 
-    h1 {
-      font-size: 44px;
-      line-height: 1.1;
-      margin: 0 0 18px;
-      letter-spacing: -0.03em;
-      max-width: 30ch;
+    .tab:hover{
+      background:rgba(16,17,20,.03);
+      border-color:rgba(16,17,20,.10);
+      color:var(--ink);
+      text-decoration:none;
     }
 
-    .intro {
-      font-size: 18px;
-      color: var(--muted);
-      max-width: 75ch;
+    section{padding:var(--s6) 0}
+    .section-tight{padding:calc(var(--s6) - 10px) 0}
+
+    .hero{
+      padding:calc(var(--s6) - 4px) 0 var(--s5);
+      border-bottom:1px solid var(--border);
+      background:linear-gradient(180deg,rgba(255,255,255,.72) 0%, rgba(246,246,246,0) 100%);
     }
 
-    .meta {
-      margin-top: 18px;
-      font-size: 14px;
-      color: var(--muted);
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:var(--s5);
+      align-items:center;
     }
 
-    .meta strong { color: var(--ink); }
-
-    .profile img {
-      width: 100%;
-      height: 360px;
-      object-fit: cover;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
+    h1{
+      margin:0 0 var(--s2);
+      font-size:40px;
+      line-height:1.12;
+      letter-spacing:-.03em;
+      max-width:32ch;
     }
 
-    .profile-meta {
-      margin-top: 10px;
-      font-size: 14px;
-      color: var(--muted);
+    h2{
+      margin:0 0 var(--s2);
+      font-size:26px;
+      line-height:1.2;
+      letter-spacing:-.02em;
     }
 
-    .section-title {
-      font-size: 30px;
-      margin: 0 0 14px;
-      letter-spacing: -0.02em;
+    h3{
+      margin:0 0 8px;
+      font-size:16px;
+      letter-spacing:-.01em;
     }
 
-    .lead {
-      font-size: 18px;
-      color: var(--muted);
-      max-width: 80ch;
+    p{margin:0 0 var(--s2);color:var(--muted);font-size:16px;max-width:80ch}
+    p:last-child{margin-bottom:0}
+
+    .intro{
+      font-size:17px;
+      color:var(--muted);
+      max-width:78ch;
     }
 
-    .alpha-grid {
-      margin-top: 20px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px 20px;
+    .meta{
+      display:grid;
+      gap:6px;
+      margin-top:var(--s3);
+      font-size:13px;
+      color:var(--muted);
     }
 
-    .alpha-grid div {
-      padding: 12px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: #ffffff;
-      font-size: 14px;
-      color: var(--muted);
+    .meta strong{color:var(--ink);font-weight:650}
+
+    .hero-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:var(--s3);
     }
 
-    .steps {
-      margin-top: 24px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+    .profile{
+      display:grid;
+      gap:10px;
+      align-content:start;
     }
 
-    .step {
-      padding: 18px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: #ffffff;
+    .profile-photo{
+      width:100%;
+      height:340px;
+      object-fit:cover;
+      border-radius:var(--radius);
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.6);
     }
 
-    .step small {
-      display: block;
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: 6px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+    .profile-meta{
+      display:grid;
+      gap:2px;
+      font-size:14px;
+      color:var(--muted);
     }
 
-    .step strong {
-      display: block;
-      margin-bottom: 6px;
+    .profile-meta strong{color:var(--ink);font-weight:700}
+
+    .panel{
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:var(--s4);
     }
 
-    .card-grid {
-      margin-top: 20px;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:var(--s4);
     }
 
-    .card {
-      padding: 18px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: #ffffff;
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:var(--s4);
     }
 
-    .card h3 {
-      margin-top: 0;
-      font-size: 16px;
+    .alpha-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:10px 16px;
+      margin-top:var(--s3);
     }
 
-    .card ul {
-      margin: 10px 0 0;
-      padding-left: 18px;
-      color: var(--muted);
+    .alpha-grid div{
+      padding:10px 12px;
+      border:1px solid var(--border);
+      border-radius:12px;
+      background:var(--panel);
+      color:var(--muted);
+      font-size:14px;
     }
 
-    form {
-      margin-top: 30px;
-      display: grid;
-      gap: 16px;
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:var(--s4);
+      margin-top:var(--s3);
     }
 
-    label {
-      font-size: 14px;
-      font-weight: 600;
+    .step{
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:var(--s4);
     }
 
-    input,
-    textarea {
-      width: 100%;
-      padding: 12px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      font: inherit;
+    .step-top{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:8px;
     }
 
-    textarea {
-      min-height: 150px;
-      resize: vertical;
+    .step-num{
+      width:26px;
+      height:26px;
+      border-radius:999px;
+      display:grid;
+      place-items:center;
+      border:1px solid var(--border);
+      color:var(--ink);
+      font-weight:750;
+      font-size:13px;
+      background:rgba(16,17,20,.02);
+      flex:0 0 auto;
     }
 
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
+    .step p{font-size:14px;color:var(--muted);margin:0}
+
+    .pills{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:var(--s3);
     }
 
-    footer {
-      padding: 40px 0;
-      border-top: 1px solid var(--border);
-      background: #ffffff;
-      font-size: 14px;
-      color: var(--muted);
+    .pill{
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.78);
+      color:var(--muted);
+      font-size:13px;
+      font-weight:560;
     }
 
-    @media (max-width: 900px) {
-      .hero-grid,
-      .steps,
-      .card-grid,
-      .alpha-grid,
-      .form-row {
-        grid-template-columns: 1fr;
-      }
+    ul{
+      margin:10px 0 0;
+      padding-left:18px;
+      color:var(--muted);
+      font-size:14px;
+    }
 
-      h1 { font-size: 34px; }
+    li{margin:6px 0}
+
+    .alt{
+      background:rgba(255,255,255,.55);
+      border-top:1px solid var(--border);
+      border-bottom:1px solid var(--border);
+    }
+
+    form{
+      margin-top:var(--s3);
+      display:grid;
+      gap:12px;
+    }
+
+    .form-row{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+
+    label{
+      display:block;
+      font-size:13px;
+      font-weight:700;
+      color:var(--ink);
+      margin-bottom:6px;
+      letter-spacing:-.01em;
+    }
+
+    input,textarea{
+      width:100%;
+      border:1px solid var(--border);
+      border-radius:12px;
+      padding:12px;
+      font:inherit;
+      background:var(--panel);
+      color:var(--ink);
+      outline:none;
+    }
+
+    textarea{min-height:150px;resize:vertical}
+
+    input:focus,textarea:focus{border-color:rgba(16,17,20,.22)}
+
+    footer{
+      padding:var(--s5) 0;
+      border-top:1px solid var(--border);
+      background:#fff;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:var(--s4);
+      align-items:start;
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(8px);
+      transition:opacity 520ms ease, transform 520ms ease;
+      will-change:opacity,transform;
+    }
+
+    .reveal.is-visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .reveal{opacity:1;transform:none;transition:none}
+      html{scroll-behavior:auto}
+      .btn{transition:none}
+      .tab{transition:none}
+    }
+
+    @media (max-width: 900px){
+      .hero-grid{grid-template-columns:1fr;gap:var(--s4)}
+      .profile-photo{height:280px}
+      .grid-2,.grid-3,.steps,.alpha-grid,.footer-grid,.form-row{grid-template-columns:1fr}
+      section{padding:calc(var(--s6) - 8px) 0}
+      h1{font-size:34px}
+      h2{font-size:24px}
     }
   </style>
 </head>
 
 <body>
+  <header class="site-header">
+    <div class="container">
+      <div class="topbar">
+        <a class="brand" href="#top" aria-label="Home">
+          <strong>David Billington</strong>
+          <span>Counselling in Horndean &amp; online</span>
+        </a>
+        <a class="btn btn-primary" href="#contact">Book a free call</a>
+      </div>
 
-<header>
-  <div class="container">
-    <div class="nav">
-      <a class="brand" href="#top">
-        <strong>David Billington</strong>
-        <span>Counselling in Horndean &amp; online</span>
-      </a>
-      <a class="btn" href="#contact">Book a free call</a>
+      <nav class="tabs" aria-label="Page sections">
+        <a class="tab" href="#help">What I can help with</a>
+        <a class="tab" href="#start">Getting started</a>
+        <a class="tab" href="#practice">My practice</a>
+        <a class="tab" href="#how">How I work</a>
+        <a class="tab" href="#therapy">Therapy approaches</a>
+        <a class="tab" href="#contact">Contact</a>
+      </nav>
     </div>
-  </div>
-</header>
+  </header>
 
-<main>
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="reveal">
+            <h1>Online counselling, and face to face in Horndean, Hampshire</h1>
 
-<section class="hero" id="top">
-  <div class="container">
-    <div class="hero-grid">
-      <div>
-        <h1>Councelling in Horndean, Hampshire & Online</h1>
-        <p class="intro">
-          I provide a safe and confidential space where you can share your story, at your own pace. Whatever feels heavy, unclear or difficult, we can explore it together and begin to make sense of it so you can empower yourself to take the right path for you.
-        </p>
-        <div class="meta">
-          <div><strong>Where:</strong> Online across the UK, and in-person in Horndean</div>
-          <div><strong>First step:</strong> Free 20-minute introductory call</div>
+            <p class="intro">
+              I provide a safe and confidential space where you can share your story, at your own pace.
+              Whatever feels heavy, unclear or difficult, we can explore it together and begin to make sense of it —
+              so you can empower yourself to take the right path for you.
+            </p>
+
+            <div class="meta">
+              <div><strong>Where:</strong> Online across the UK, and in-person in Horndean (near Waterlooville)</div>
+              <div><strong>First step:</strong> Free 20-minute introductory phone call</div>
+              <div><strong>Sessions:</strong> 50 minutes, usually weekly</div>
+            </div>
+
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#contact">Book a free call</a>
+              <a class="btn" href="#help">What I can help with</a>
+            </div>
+          </div>
+
+          <aside class="profile reveal" aria-label="Profile">
+            <img class="profile-photo" src="david-headshot.jpg" alt="David Billington" loading="eager" />
+            <div class="profile-meta">
+              <strong>David Billington</strong>
+              <span>Horndean, Hampshire &amp; online</span>
+              <span>Adults (18+)</span>
+            </div>
+          </aside>
         </div>
       </div>
+    </section>
 
-      <div class="profile">
-        <img src="david-headshot.jpg" alt="David Billington">
-        <div class="profile-meta">
-          <strong>David Billington</strong><br>
-          Adults 18+<br>
-          Horndean, Hampshire &amp; online
+    <section id="help" class="section-tight">
+      <div class="container">
+        <div class="reveal">
+          <h2>What I can help with</h2>
+          <p>
+            If you are considering counselling, it can be a sign that you are taking the first steps towards addressing a problem or discomfort in your life.
+            It may be that something is not working for you, or that you are feeling unsure or distressed but don’t know why.
+            Counselling can help you explore and understand your thoughts, feelings and behaviours — and begin to move forward.
+          </p>
+        </div>
+
+        <div class="alpha-grid reveal" role="list" aria-label="Areas I can help with (A to Z)">
+          <div role="listitem">ADD / ADHD</div>
+          <div role="listitem">Anxiety</div>
+          <div role="listitem">Autism spectrum</div>
+          <div role="listitem">Bereavement</div>
+          <div role="listitem">Chronic fatigue syndrome / ME</div>
+          <div role="listitem">Depression</div>
+          <div role="listitem">Health related issues</div>
+          <div role="listitem">Loss</div>
+          <div role="listitem">Neurodiversity</div>
+          <div role="listitem">Self esteem</div>
+          <div role="listitem">Stress</div>
+          <div role="listitem">Trauma</div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section id="help">
-  <div class="container">
-    <h2 class="section-title">What I can help with</h2>
-    <p class="lead">
-      If you are considering counselling, it may be that something is not working for you, or that you are feeling unsure or distressed but don’t know why. Counselling can help you explore and understand your thoughts, feelings and behaviours.
-    </p>
+    <section id="start" class="alt section-tight">
+      <div class="container">
+        <div class="reveal">
+          <h2>Getting started</h2>
+          <p>
+            Selecting a counsellor can feel overwhelming, but it’s important to find the right fit.
+            Prior to our initial session, and before you decide to proceed with therapy, I provide a complimentary 20-minute phone call.
+            This allows us to discuss your requirements and address any questions you may have.
+          </p>
+        </div>
 
-    <div class="alpha-grid">
-      <div>ADD / ADHD</div>
-      <div>Anxiety</div>
-      <div>Autism spectrum</div>
-      <div>Bereavement</div>
-      <div>Chronic fatigue syndrome / ME</div>
-      <div>Depression</div>
-      <div>Health related issues</div>
-      <div>Loss</div>
-      <div>Neurodiversity</div>
-      <div>Self esteem</div>
-      <div>Stress</div>
-      <div>Trauma</div>
-    </div>
-  </div>
-</section>
+        <div class="steps reveal" aria-label="Steps">
+          <div class="step">
+            <div class="step-top">
+              <span class="step-num">1</span>
+              <strong>Free 20-minute call</strong>
+            </div>
+            <p>A short conversation to understand what you need and whether working together feels right.</p>
+          </div>
 
-<section id="start">
-  <div class="container">
-    <h2 class="section-title">Getting started</h2>
-    <div class="steps">
-      <div class="step">
-        <small>Step 1</small>
-        <strong>Free 20-minute call</strong>
-        A chance to talk through your needs and see if we’re a good fit.
+          <div class="step">
+            <div class="step-top">
+              <span class="step-num">2</span>
+              <strong>Your first session</strong>
+            </div>
+            <p>We’ll begin gently and take time to understand what brings you to therapy and what you would like from it.</p>
+          </div>
+
+          <div class="step">
+            <div class="step-top">
+              <span class="step-num">3</span>
+              <strong>Ongoing sessions</strong>
+            </div>
+            <p>We’ll schedule weekly sessions at a consistent time and routinely review progress to ensure you feel supported.</p>
+          </div>
+        </div>
+
+        <div class="pills reveal" aria-label="How sessions can happen">
+          <div class="pill">Online therapy</div>
+          <div class="pill">Face-to-face therapy (if you want)</div>
+          <div class="pill">Telephone therapy</div>
+          <div class="pill">Short term or long term</div>
+        </div>
       </div>
-      <div class="step">
-        <small>Step 2</small>
-        <strong>Your first session</strong>
-        We explore what brings you to therapy and what you would like to change.
-      </div>
-      <div class="step">
-        <small>Step 3</small>
-        <strong>Ongoing sessions</strong>
-        Weekly 50-minute sessions, short-term or long-term.
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section id="therapy">
-  <div class="container">
-    <h2 class="section-title">Therapy approaches</h2>
-    <div class="card-grid">
-      <div class="card">
-        <h3>Types of therapy</h3>
-        <ul>
-          <li>Brief therapy</li>
-          <li>Existential</li>
-          <li>Humanistic</li>
-          <li>Integrative</li>
-          <li>Person centred</li>
-          <li>Phenomenological</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>How I deliver therapy</h3>
-        <ul>
-          <li>Online therapy</li>
-          <li>Face-to-face therapy</li>
-          <li>Telephone therapy</li>
-          <li>Short-term or long-term work</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+    <section id="practice" class="section-tight">
+      <div class="container">
+        <div class="grid-2">
+          <div class="reveal">
+            <h2>My practice</h2>
+            <p>
+              I work online and in person from a private and confidential setting in Horndean, Hampshire. I have found online sessions to be highly effective,
+              as clients are in a safe familiar space and travel can cause anxiety for many people.
+            </p>
+            <p>
+              I am a member of the British Association for Counselling and Psychotherapy (BACP) and I work within their ethical framework.
+              You can view my registration via my BACP profile.
+            </p>
+            <p>
+              <a href="https://www.bacp.co.uk/therapists/399649/david-billington/waterlooville-po8" target="_blank" rel="noopener">View my BACP profile</a>
+            </p>
+          </div>
 
-<section id="contact">
-  <div class="container">
-    <h2 class="section-title">Contact</h2>
-    <p class="lead">
-      You may know what you need, and you may not. If you would like to arrange a free introductory call, please send a message below.
-    </p>
+          <div class="reveal">
+            <div class="panel">
+              <h3>Practical details</h3>
+              <ul>
+                <li>Private and confidential setting</li>
+                <li>On-street parking</li>
+                <li>Bus stop a short walk away</li>
+                <li>Working days/evenings on Mondays, Wednesdays and Thursdays</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <form>
-      <div class="form-row">
+    <section id="how" class="alt section-tight">
+      <div class="container">
+        <div class="reveal">
+          <h2>How I work</h2>
+          <p>
+            Everyone experiences challenges and sometimes we need additional support to navigate and overcome them.
+            As a trained psychotherapist, I offer a professional and skilled approach to addressing these challenges through a process of self-exploration
+            and discovery within the therapeutic relationship.
+          </p>
+          <p>
+            My goal is to help you explore and understand your thoughts, feelings and behaviours in order to promote healing and growth.
+          </p>
+        </div>
+
+        <div class="grid-2 reveal" style="margin-top: var(--s3);">
+          <div class="panel">
+            <h3>Session structure</h3>
+            <ul>
+              <li>50-minute sessions</li>
+              <li>Usually weekly at a consistent time</li>
+              <li>Regular check-ins on progress</li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <h3>Who I work with</h3>
+            <ul>
+              <li>Adults of all ages, from 18+</li>
+              <li>Online or face-to-face (your choice)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="therapy" class="section-tight">
+      <div class="container">
+        <div class="reveal">
+          <h2>Therapy approaches</h2>
+          <p>
+            I work integratively, drawing from different approaches depending on your needs and what feels most helpful.
+          </p>
+        </div>
+
+        <div class="grid-2 reveal" style="margin-top: var(--s3);">
+          <div class="panel">
+            <h3>Types of therapy</h3>
+            <ul>
+              <li>Brief therapy</li>
+              <li>Existential</li>
+              <li>Humanistic</li>
+              <li>Integrative</li>
+              <li>Person centred</li>
+              <li>Phenomenological</li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <h3>How I deliver therapy</h3>
+            <ul>
+              <li>Long term sessions</li>
+              <li>Long-term face-to-face work</li>
+              <li>Online therapy</li>
+              <li>Short term sessions</li>
+              <li>Short-term face-to-face work</li>
+              <li>Telephone therapy</li>
+              <li>Time-limited</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="alt section-tight">
+      <div class="container">
+        <div class="reveal">
+          <h2>Contact</h2>
+          <p>
+            You may know what you need, and you may not. Perhaps just a chat, a few sessions, or longer term help.
+            If you would like to arrange a free introductory call, please send a message below.
+          </p>
+        </div>
+
+        <div class="panel reveal" style="margin-top: var(--s3);">
+          <form action="#" method="post">
+            <div class="form-row">
+              <div>
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" autocomplete="name" required />
+              </div>
+
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required />
+              </div>
+            </div>
+
+            <div>
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Send message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
         <div>
-          <label>Name</label>
-          <input type="text" required>
+          <strong style="color: var(--ink); font-weight: 750;">David Billington</strong><br />
+          Counselling in Horndean, Hampshire &amp; online
         </div>
         <div>
-          <label>Email</label>
-          <input type="email" required>
+          <a href="https://www.bacp.co.uk/therapists/399649/david-billington/waterlooville-po8" target="_blank" rel="noopener">BACP profile</a>
         </div>
       </div>
+    </div>
+  </footer>
 
-      <div>
-        <label>Message</label>
-        <textarea required></textarea>
-      </div>
+  <script>
+    (function () {
+      var els = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
+      if (!("IntersectionObserver" in window)) {
+        els.forEach(function (el) { el.classList.add("is-visible"); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -10% 0px" });
 
-      <button class="btn" type="submit">Send message</button>
-    </form>
-  </div>
-</section>
-
-</main>
-
-<footer>
-  <div class="container">
-    <strong>David Billington</strong><br>
-    Counselling in Horndean, Hampshire &amp; online
-  </div>
-</footer>
-
+      els.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
 </body>
 </html>
