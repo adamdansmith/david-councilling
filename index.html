@@ -58,6 +58,28 @@
       border-bottom:1px solid var(--border);
     }
 
+    .leftgroup{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  min-width:0;
+}
+
+.tabs-inline{
+  padding:0;
+  overflow:visible;
+  gap:6px;
+}
+
+.tabs-inline .tab{
+  padding:8px 10px;
+  font-size:13px;
+}
+
+@media (max-width: 900px){
+  .tabs-inline{ display:none; }
+}
+
     .topbar{
       display:flex;
       align-items:center;
@@ -383,16 +405,28 @@
 
 <body>
   <header class="site-header">
-    <div class="container">
-      <div class="topbar">
+  <div class="container">
+    <div class="topbar">
+      <div class="leftgroup">
         <a class="brand" href="#top" aria-label="Home">
           <strong>David Billington</strong>
           <span>Counselling in Horndean &amp; online</span>
         </a>
-        <a class="btn btn-primary" href="#contact">Book a free call</a>
+
+        <nav class="tabs tabs-inline" aria-label="Page sections">
+          <a class="tab" href="#help">What I can help with</a>
+          <a class="tab" href="#start">Getting started</a>
+          <a class="tab" href="#practice">My practice</a>
+          <a class="tab" href="#how">How I work</a>
+          <a class="tab" href="#therapy">Therapy approaches</a>
+          <a class="tab" href="#contact">Contact</a>
+        </nav>
       </div>
+
+      <a class="btn btn-primary" href="#contact">Book a free call</a>
     </div>
-  </header>
+  </div>
+</header>
 
   <main id="top">
     <section class="hero">
