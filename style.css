@@ -67,3 +67,6 @@
 }
 @media(max-width:900px) and (prefers-reduced-motion:no-preference){body.has-reveal .sessions.is-visible .practice-photo{opacity:.1}}
 @media(max-width:550px) and (prefers-reduced-motion:no-preference){body.has-reveal .sessions.is-visible .practice-photo{opacity:.075}}
+
+.hero-credential{margin:-7px 0 22px;color:#3e6151;font-size:17px;font-weight:700;letter-spacing:.005em;line-height:1.4}
+@media(max-width:550px){.hero-credential{font-size:16px;margin:-4px 0 19px}}
