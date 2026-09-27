@@ -1,0 +1,10 @@
+const encoder=new TextEncoder(),cookie='db_editor_session';
+const b64=bytes=>btoa(String.fromCharCode(...new Uint8Array(bytes))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+const equal=(a,b)=>{if(a.length!==b.length)return false;let n=0;for(let i=0;i<a.length;i++)n|=a.charCodeAt(i)^b.charCodeAt(i);return n===0};
+const sign=async(secret,payload)=>{const key=await crypto.subtle.importKey('raw',encoder.encode(secret),{name:'HMAC',hash:'SHA-256'},false,['sign']);return b64(await crypto.subtle.sign('HMAC',key,encoder.encode(payload)))};
+export const configured=env=>Boolean(env.SITE_CONTENT&&env.EDITOR_PASSWORD&&env.EDITOR_SESSION_SECRET?.length>=32);
+export const validOrigin=request=>request.headers.get('Origin')===new URL(request.url).origin;
+export const passwordMatches=async(input,expected)=>{const[a,b]=await Promise.all([crypto.subtle.digest('SHA-256',encoder.encode(input)),crypto.subtle.digest('SHA-256',encoder.encode(expected))]);return equal(b64(a),b64(b))};
+export const issueSession=async env=>{const payload=b64(encoder.encode(JSON.stringify({expires:Date.now()+8*60*60*1000})));return `${cookie}=${payload}.${await sign(env.EDITOR_SESSION_SECRET,payload)}; Path=/; Max-Age=28800; HttpOnly; Secure; SameSite=Strict`};
+export const clearSession=`${cookie}=; Path=/; Max-Age=0; HttpOnly; Secure; SameSite=Strict`;
+export const authenticated=async(request,env)=>{if(!configured(env))return false;const value=request.headers.get('Cookie')?.split(';').map(x=>x.trim()).find(x=>x.startsWith(`${cookie}=`))?.slice(cookie.length+1);if(!value)return false;const[payload,mac]=value.split('.');if(!payload||!mac||!equal(mac,await sign(env.EDITOR_SESSION_SECRET,payload)))return false;try{return JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(payload.replace(/-/g,'+').replace(/_/g,'/')),c=>c.charCodeAt(0)))).expires>Date.now()}catch{return false}};
