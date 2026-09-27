@@ -6,11 +6,11 @@
 .support>div{margin:0;max-width:650px}
 .tree-figure{display:flex;align-items:center;justify-content:center;margin:0;min-height:450px;color:#78917c}
 .growth-tree{display:block;width:min(100%,420px);max-height:490px;overflow:visible}
-.tree-branches path,.tree-leaves path{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round}
+.tree-branches path,.tree-leaves path,.tree-leaves ellipse{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round}
 .tree-branches path{stroke-dasharray:100;stroke-dashoffset:100}
-.tree-leaves path{stroke-width:1.2;opacity:0}
+.tree-leaves path,.tree-leaves ellipse{stroke-width:1.2;opacity:0}
 .tree-figure.is-visible .tree-branches path{animation:tree-grow .9s cubic-bezier(.28,.1,.25,1) var(--delay) forwards}
-.tree-figure.is-visible .tree-leaves path{animation:leaf-appear 1s ease 3.4s forwards}
+.tree-figure.is-visible .tree-leaves path,.tree-figure.is-visible .tree-leaves ellipse{animation:leaf-appear 1s ease 3.4s forwards}
 @keyframes tree-grow{to{stroke-dashoffset:0}}
 @keyframes leaf-appear{to{opacity:.7}}
 .support-list{gap:6px 26px;margin:27px 0 19px}
@@ -22,4 +22,4 @@
 .details{border:0;margin-top:36px;padding:0;gap:30px}
 @media(max-width:850px){.support{display:block;padding-top:18px;padding-bottom:62px}.tree-figure{min-height:320px;margin:0 auto 18px}.growth-tree{height:320px}.support>div{max-width:840px;margin:0 auto}}
 @media(max-width:550px){.support{padding:0 24px 62px}.tree-figure{min-height:260px;margin-bottom:12px}.growth-tree{height:260px}.support-list{grid-template-columns:1fr;gap:3px}.support-list li{padding:5px 0}}
-@media(prefers-reduced-motion:reduce){.tree-branches path{stroke-dashoffset:0}.tree-leaves path{opacity:.7}.tree-figure.is-visible .tree-branches path,.tree-figure.is-visible .tree-leaves path{animation:none}}
+@media(prefers-reduced-motion:reduce){.tree-branches path{stroke-dashoffset:0}.tree-leaves path,.tree-leaves ellipse{opacity:.7}.tree-figure.is-visible .tree-branches path,.tree-figure.is-visible .tree-leaves path,.tree-figure.is-visible .tree-leaves ellipse{animation:none}}
