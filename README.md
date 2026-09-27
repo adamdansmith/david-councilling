@@ -1,15 +1,21 @@
 # David Billington Counselling
 
-One-page Cloudflare Worker site. David can change text and prices at `/admin/` using a password, as with the Harbour Town gigs editor. A GitHub account and Cloudflare Access are not needed to sign in.
+One-page Cloudflare **Pages** project with Pages Functions for the password editor and contact form. This follows the Harbour Town deployment pattern. The previous Worker is not needed after Pages is deployed and tested.
+
+## Cloudflare Pages deployment
+
+The existing Pages project is connected to this GitHub repository. Keep its current build output directory at the repository root (`.`). The `functions` directory is discovered automatically and `_routes.json` limits function requests to the editor and APIs. Deploy this commit from `main`, then check the public site and `/admin/` before deleting the old Worker.
+
+The public site works without bindings. Its contact form will display an error until email delivery is configured.
 
 ## Editor setup
 
-1. Create a Cloudflare KV namespace and bind it to the Worker as `SITE_CONTENT`. Until bound, the public site uses `content.json` and editing is unavailable.
-2. Add encrypted Worker secrets `EDITOR_PASSWORD` and `EDITOR_SESSION_SECRET` (a separate random value of at least 32 characters). Do not put either value in GitHub. Redeploy after adding them.
-3. Visit `/admin/`, sign in with the password and save a change. A signed, HttpOnly, Secure, SameSite cookie lasts eight hours. Five incorrect attempts from one IP trigger a 15-minute limit.
+1. Create a Cloudflare KV namespace and bind it to the **Pages project** as `SITE_CONTENT` under Settings → Bindings. Set it for Production and Preview if you will use both.
+2. Under the **Pages project's** Settings → Variables and Secrets, add encrypted `EDITOR_PASSWORD` and `EDITOR_SESSION_SECRET` (a separate random value of at least 32 characters). Set them for Production, and Preview if needed. Do not commit these values to GitHub. Redeploy after setting them.
+3. Visit `/admin/`, sign in and save a change. The signed, HttpOnly, Secure, SameSite cookie lasts eight hours. Five incorrect attempts from one IP trigger a 15-minute limit. David does not need a GitHub or Cloudflare account.
 
 ## Contact form
 
-The old site's form is hosted by Wix and does not expose its notification recipient publicly. The new form therefore needs its delivery destination configured. Set up a verified sending domain with Resend and add encrypted Worker secrets `RESEND_API_KEY`, `CONTACT_TO` (David's current enquiry inbox) and `CONTACT_FROM` (a verified sender such as `Website <hello@example.com>`). Send a test message and confirm receipt and reply-to. Until configured, the form reports that delivery failed and David's phone number remains available.
+The pre-redesign site had no email address in its source and its form posted to `#` without delivery code. The Wix form's inbox cannot be determined publicly. For email delivery, verify a sender domain with Resend and set encrypted Pages secrets `RESEND_API_KEY`, `CONTACT_FROM` (for example `David Billington Counselling <website@thejourneytowholeness.com>`) and `CONTACT_TO` (the inbox that should receive enquiries). Test receipt and reply-to before publishing the form as ready. Enquiries are not stored on the website.
 
-Enquiries are not stored by the site. Add a practice privacy notice and Cloudflare rate limiting or Turnstile before public launch. Confirm the price, availability, BACP status and copy with David. The portrait is the photo already present in this repository.
+Confirm copy, fee, availability, BACP status and a privacy notice with David before public launch. The portrait is the image already present in the original repository.

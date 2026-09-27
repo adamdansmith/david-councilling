@@ -1,0 +1,10 @@
+import {authenticated,configured} from './auth.js';
+const login=`<main><a href="/">← View website</a><h1>Site editor</h1><p>Enter the editor password to change the website's text and prices.</p><form id="login"><label for="password">Password</label><input type="password" name="password" id="password" autocomplete="current-password" required><button class="button">Sign in →</button><p id="feedback" role="status"></p></form></main><script src="/admin/login.js" defer></script>`;
+const editor=`<main><a href="/">← View website</a><h1>Site editor</h1><p>Edit the text and prices below, then save. Changes will appear on the website straight away.</p><button type="button" id="logout" class="button">Sign out</button><form class="editor" id="editor"></form><p id="status" role="status"></p></main><script src="/admin/editor.js" defer></script>`;
+const headers={'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-store','X-Robots-Tag':'noindex, nofollow','Content-Security-Policy':"default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self'; form-action 'self'; base-uri 'none'; frame-ancestors 'none'"};
+export async function editorPage({request,env}){
+  if(!configured(env))return new Response('<h1>Editor setup is incomplete</h1><p>Configure the editor storage, password and session secret in Cloudflare Pages.</p>',{status:503,headers});
+  const signedIn=await authenticated(request,env);
+  const markup=`<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Site editor | David Billington</title><link rel="stylesheet" href="/style.css"><style>main{max-width:860px;margin:auto;padding:60px 24px;min-height:70vh}h1{font-size:clamp(2.5rem,6vw,4rem)}input,textarea{color:#26332f;background:#fff;border-color:#9eaaa0}.editor{display:grid;gap:15px}.editor label{margin-top:14px}.editor input,.editor textarea{margin:0}#feedback{color:#922}</style></head><body>${signedIn?editor:login}</body></html>`;
+  return new Response(markup,{headers});
+}
