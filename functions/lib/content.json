@@ -2,7 +2,7 @@
   "heroTitle": "Counselling in Horndean and online",
   "heroIntro": "Welcome, I am David Billington. I am available online and face to face in Horndean, Hampshire. I provide a safe place where you can confidentially share your life, your story and what may be painful and confusing for you. Together, we can share your burden and find a new way of being. You can make incredible changes and empower yourself to take the right path for you.",
   "aboutTitle": "My practice",
-  "aboutText": "I run a private practice online and in person from Horndean, Hampshire, and I also work for I’m All Ears counselling service in Surrey. I am a registered member of the British Association for Counselling and Psychotherapy (BACP) and follow its ethical framework for good practice. Face-to-face sessions take place in a private, confidential home setting. There is on-street parking and a bus stop about two minutes’ walk away.",
+  "aboutText": "I run a private practice online and in person from Horndean, Hampshire, and I work for I’m All Ears counselling service in Surrey. I am a registered member of the British Association for Counselling and Psychotherapy (BACP) and follow its ethical framework for good practice.",
   "supportTitle": "What I can help with",
   "supportIntro": "I work with adults aged 18 and over on:",
   "supportItems": [
@@ -16,8 +16,8 @@
     "Health-related concerns"
   ],
   "approachTitle": "How I work",
-  "approachText": "If you are considering counselling, you are taking the first step towards addressing a problem or discomfort in your life. Something may not be working for you, or you may feel unsure or distressed without knowing why. Everyone experiences challenges, and sometimes we need additional support to navigate them. As a trained psychotherapist, I offer a professional approach to self-exploration and discovery within the therapeutic relationship. Together, we can explore your thoughts, feelings and behaviours to support healing and growth.",
-  "introTitle": "Your first session",
+  "approachText": "Everyone experiences challenges, and sometimes we need additional support to navigate and overcome them. As a trained psychotherapist, I offer a professional and skilled approach through self-exploration and discovery within the therapeutic relationship. My goal is to help you explore and understand your thoughts, feelings and behaviours to promote healing and growth.",
+  "introTitle": "Getting started",
   "introText": "Before our first session, I offer a free 20-minute phone call to discuss what you need and answer any questions. If you decide to continue, we will arrange weekly 50-minute sessions at a regular time and review our progress together. Sessions are available online, by phone or face to face.",
   "price": "£50",
   "priceNote": "per 50-minute session",
@@ -27,5 +27,7 @@
   "phone": "07423 819 260",
   "email": "",
   "location": "Horndean, Hampshire · online across the UK",
-  "sectionTitle": "Counselling & Psychotherapy"
+  "sectionTitle": "Counselling & Psychotherapy",
+  "sectionIntro": "If you are considering counselling, you may be taking the first steps towards addressing a problem or discomfort in your life. Something may not be working for you, or you may feel unsure or distressed without knowing why.",
+  "practiceDetails": "Face-to-face sessions take place in a private, confidential home setting. There is on-street parking and a bus stop about two minutes’ walk away. Online sessions are available if you prefer to speak from a familiar space."
 }
