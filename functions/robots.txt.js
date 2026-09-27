@@ -1,0 +1,1 @@
+export const onRequestGet=({request})=>new Response(`User-agent: *\nAllow: /\nDisallow: /admin\nSitemap: ${new URL(request.url).origin}/sitemap.xml\n`,{headers:{'Content-Type':'text/plain; charset=utf-8'}});
