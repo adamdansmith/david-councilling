@@ -4,8 +4,8 @@
 /* Calm, readable flow for the practice and support information. */
 .intro{padding-top:66px;padding-bottom:38px}
 .intro>.intro-inner{max-width:1100px;margin:0 auto}
-.intro h2{max-width:none;margin:0 0 20px}
-.intro .intro-summary{max-width:790px;font-size:20px;line-height:1.55;color:#42534b;margin-bottom:45px}
+.intro h2{max-width:none;margin:0 0 8px}
+.intro .intro-summary{max-width:1000px;font-size:18px;line-height:1.55;margin-bottom:65px}
 .intro-grid{display:grid;grid-template-columns:minmax(0,40%) minmax(0,1fr);gap:clamp(48px,7vw,110px);align-items:start}
 .intro-grid h3{font-size:clamp(1.45rem,2vw,1.8rem);margin:0 0 14px}
 .intro-grid p{font-size:18px;line-height:1.6;margin-bottom:18px}
