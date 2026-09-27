@@ -23,3 +23,5 @@ Confirm copy, fee, availability, BACP status and a privacy notice with David bef
 ## Blog and search visibility
 
 The homepage Blog link appears only after David publishes at least one post. The blog has its own page; its title and introduction can be changed in the website text editor. He can write and format posts in `/admin/` under **Blog posts**, save drafts, and change a published post back to draft. Drafts never appear in the public list or sitemap. Posts use server-rendered HTML, unique titles, descriptions, canonical URLs and BlogPosting structured data. The site also serves `/sitemap.xml` and `/robots.txt` from Pages Functions. The homepage describes counselling in Horndean, Hampshire, and support for ADHD, neurodiversity and anxiety. Search visibility still depends on the final domain, indexing and the quality of David's content; submit the eventual domain's sitemap in Google Search Console after launch.
+
+The tree photograph is [Shivansh Sharma's Pexels image](https://www.pexels.com/photo/isolated-tree-against-clear-sky-30420424/), used under the Pexels free-use licence.
